@@ -1,0 +1,412 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DDEED60019F6238300F38C77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEED5FF19F6238300F38C77 /* AppDelegate.swift */; };
+		DDEED60219F6238300F38C77 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEED60119F6238300F38C77 /* ViewController.swift */; };
+		DDEED60419F6238300F38C77 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDEED60319F6238300F38C77 /* Images.xcassets */; };
+		DDEED60719F6238300F38C77 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDEED60519F6238300F38C77 /* Main.storyboard */; };
+		DDEED61319F6238300F38C77 /* CanvasBlittingToolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEED61219F6238300F38C77 /* CanvasBlittingToolTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DDEED60D19F6238300F38C77 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DDEED5F219F6238300F38C77 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DDEED5F919F6238300F38C77;
+			remoteInfo = CanvasBlittingTool;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DDEED5FA19F6238300F38C77 /* CanvasBlittingTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CanvasBlittingTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDEED5FE19F6238300F38C77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDEED5FF19F6238300F38C77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DDEED60119F6238300F38C77 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DDEED60319F6238300F38C77 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		DDEED60619F6238300F38C77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DDEED60C19F6238300F38C77 /* CanvasBlittingToolTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CanvasBlittingToolTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDEED61119F6238300F38C77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDEED61219F6238300F38C77 /* CanvasBlittingToolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasBlittingToolTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DDEED5F719F6238300F38C77 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDEED60919F6238300F38C77 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DDEED5F119F6238300F38C77 = {
+			isa = PBXGroup;
+			children = (
+				DDEED5FC19F6238300F38C77 /* CanvasBlittingTool */,
+				DDEED60F19F6238300F38C77 /* CanvasBlittingToolTests */,
+				DDEED5FB19F6238300F38C77 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DDEED5FB19F6238300F38C77 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DDEED5FA19F6238300F38C77 /* CanvasBlittingTool.app */,
+				DDEED60C19F6238300F38C77 /* CanvasBlittingToolTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DDEED5FC19F6238300F38C77 /* CanvasBlittingTool */ = {
+			isa = PBXGroup;
+			children = (
+				DDEED5FF19F6238300F38C77 /* AppDelegate.swift */,
+				DDEED60119F6238300F38C77 /* ViewController.swift */,
+				DDEED60319F6238300F38C77 /* Images.xcassets */,
+				DDEED60519F6238300F38C77 /* Main.storyboard */,
+				DDEED5FD19F6238300F38C77 /* Supporting Files */,
+			);
+			path = CanvasBlittingTool;
+			sourceTree = "<group>";
+		};
+		DDEED5FD19F6238300F38C77 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DDEED5FE19F6238300F38C77 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DDEED60F19F6238300F38C77 /* CanvasBlittingToolTests */ = {
+			isa = PBXGroup;
+			children = (
+				DDEED61219F6238300F38C77 /* CanvasBlittingToolTests.swift */,
+				DDEED61019F6238300F38C77 /* Supporting Files */,
+			);
+			path = CanvasBlittingToolTests;
+			sourceTree = "<group>";
+		};
+		DDEED61019F6238300F38C77 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DDEED61119F6238300F38C77 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DDEED5F919F6238300F38C77 /* CanvasBlittingTool */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DDEED61619F6238300F38C77 /* Build configuration list for PBXNativeTarget "CanvasBlittingTool" */;
+			buildPhases = (
+				DDEED5F619F6238300F38C77 /* Sources */,
+				DDEED5F719F6238300F38C77 /* Frameworks */,
+				DDEED5F819F6238300F38C77 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CanvasBlittingTool;
+			productName = CanvasBlittingTool;
+			productReference = DDEED5FA19F6238300F38C77 /* CanvasBlittingTool.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DDEED60B19F6238300F38C77 /* CanvasBlittingToolTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DDEED61919F6238300F38C77 /* Build configuration list for PBXNativeTarget "CanvasBlittingToolTests" */;
+			buildPhases = (
+				DDEED60819F6238300F38C77 /* Sources */,
+				DDEED60919F6238300F38C77 /* Frameworks */,
+				DDEED60A19F6238300F38C77 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DDEED60E19F6238300F38C77 /* PBXTargetDependency */,
+			);
+			name = CanvasBlittingToolTests;
+			productName = CanvasBlittingToolTests;
+			productReference = DDEED60C19F6238300F38C77 /* CanvasBlittingToolTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DDEED5F219F6238300F38C77 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Two Amadios";
+				TargetAttributes = {
+					DDEED5F919F6238300F38C77 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					DDEED60B19F6238300F38C77 = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = DDEED5F919F6238300F38C77;
+					};
+				};
+			};
+			buildConfigurationList = DDEED5F519F6238300F38C77 /* Build configuration list for PBXProject "CanvasBlittingTool" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DDEED5F119F6238300F38C77;
+			productRefGroup = DDEED5FB19F6238300F38C77 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DDEED5F919F6238300F38C77 /* CanvasBlittingTool */,
+				DDEED60B19F6238300F38C77 /* CanvasBlittingToolTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DDEED5F819F6238300F38C77 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDEED60419F6238300F38C77 /* Images.xcassets in Resources */,
+				DDEED60719F6238300F38C77 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDEED60A19F6238300F38C77 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DDEED5F619F6238300F38C77 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDEED60219F6238300F38C77 /* ViewController.swift in Sources */,
+				DDEED60019F6238300F38C77 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDEED60819F6238300F38C77 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDEED61319F6238300F38C77 /* CanvasBlittingToolTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DDEED60E19F6238300F38C77 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DDEED5F919F6238300F38C77 /* CanvasBlittingTool */;
+			targetProxy = DDEED60D19F6238300F38C77 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DDEED60519F6238300F38C77 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DDEED60619F6238300F38C77 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DDEED61419F6238300F38C77 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DDEED61519F6238300F38C77 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		DDEED61719F6238300F38C77 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = CanvasBlittingTool/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		DDEED61819F6238300F38C77 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = CanvasBlittingTool/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		DDEED61A19F6238300F38C77 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = CanvasBlittingToolTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CanvasBlittingTool.app/Contents/MacOS/CanvasBlittingTool";
+			};
+			name = Debug;
+		};
+		DDEED61B19F6238300F38C77 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = CanvasBlittingToolTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CanvasBlittingTool.app/Contents/MacOS/CanvasBlittingTool";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DDEED5F519F6238300F38C77 /* Build configuration list for PBXProject "CanvasBlittingTool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDEED61419F6238300F38C77 /* Debug */,
+				DDEED61519F6238300F38C77 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DDEED61619F6238300F38C77 /* Build configuration list for PBXNativeTarget "CanvasBlittingTool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDEED61719F6238300F38C77 /* Debug */,
+				DDEED61819F6238300F38C77 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DDEED61919F6238300F38C77 /* Build configuration list for PBXNativeTarget "CanvasBlittingToolTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDEED61A19F6238300F38C77 /* Debug */,
+				DDEED61B19F6238300F38C77 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DDEED5F219F6238300F38C77 /* Project object */;
+}
