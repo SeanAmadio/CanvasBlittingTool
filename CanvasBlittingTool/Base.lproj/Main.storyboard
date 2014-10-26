@@ -315,7 +315,7 @@
                                     <action selector="forwardControlAction:" target="XfG-lQ-9wD" id="8mY-zZ-jzF"/>
                                 </connections>
                             </segmentedControl>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jcP-Hu-WF3">
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jcP-Hu-WF3" customClass="CBTAnimationView" customModule="CanvasBlittingTool" customModuleProvider="target">
                                 <rect key="frame" x="17" y="46" width="206" height="328"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="0rv-XU-6Xp"/>
                             </imageView>
