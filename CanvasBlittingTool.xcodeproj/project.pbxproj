@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DDCC425719FD7C63006235A2 /* CBTAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC425619FD7C63006235A2 /* CBTAnimationView.swift */; };
 		DDEED60019F6238300F38C77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEED5FF19F6238300F38C77 /* AppDelegate.swift */; };
 		DDEED60219F6238300F38C77 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEED60119F6238300F38C77 /* ViewController.swift */; };
 		DDEED60419F6238300F38C77 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDEED60319F6238300F38C77 /* Images.xcassets */; };
@@ -25,6 +26,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DDCC425619FD7C63006235A2 /* CBTAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBTAnimationView.swift; sourceTree = "<group>"; };
 		DDEED5FA19F6238300F38C77 /* CanvasBlittingTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CanvasBlittingTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDEED5FE19F6238300F38C77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDEED5FF19F6238300F38C77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 		DDEED5FC19F6238300F38C77 /* CanvasBlittingTool */ = {
 			isa = PBXGroup;
 			children = (
+				DDCC425619FD7C63006235A2 /* CBTAnimationView.swift */,
 				DDEED5FF19F6238300F38C77 /* AppDelegate.swift */,
 				DDEED60119F6238300F38C77 /* ViewController.swift */,
 				DDEED60319F6238300F38C77 /* Images.xcassets */,
@@ -208,6 +211,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDCC425719FD7C63006235A2 /* CBTAnimationView.swift in Sources */,
 				DDEED60219F6238300F38C77 /* ViewController.swift in Sources */,
 				DDEED60019F6238300F38C77 /* AppDelegate.swift in Sources */,
 			);
@@ -397,6 +401,7 @@
 				DDEED61819F6238300F38C77 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DDEED61919F6238300F38C77 /* Build configuration list for PBXNativeTarget "CanvasBlittingToolTests" */ = {
 			isa = XCConfigurationList;
@@ -405,6 +410,7 @@
 				DDEED61B19F6238300F38C77 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
