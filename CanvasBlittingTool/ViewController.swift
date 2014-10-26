@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import Foundation
 
 class ViewController: NSViewController {
 
@@ -14,6 +15,8 @@ class ViewController: NSViewController {
     @IBOutlet weak var frameratePopup: NSPopUpButton!
     @IBOutlet weak var hashComparisonCheck: NSButton!
     @IBOutlet weak var loopCheck: NSButton!
+    
+    var imageArray: [NSImage] = [];
     
     override func viewDidLoad()
     {
@@ -38,14 +41,22 @@ class ViewController: NSViewController {
         dialog.allowsMultipleSelection = true;
         dialog.canChooseDirectories = false;
         
+        var imageArrayLock = NSLock();
+        
         dialog.beginWithCompletionHandler { (Int result) -> Void in
             if (result == NSFileHandlingPanelOKButton)
             {
                 var urls = dialog.URLs;
                 
-                for object in urls
+                for url in urls as [NSURL]
                 {
-                    NSLog(object.description);
+                    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
+                        var image : NSImage! = NSImage(contentsOfFile: url.path!);
+                        imageArrayLock.lock();
+                        self.imageArray.append(image);
+                        imageArrayLock.unlock();
+                        NSLog(url.path!);
+                    });
                 }
             }
         };
