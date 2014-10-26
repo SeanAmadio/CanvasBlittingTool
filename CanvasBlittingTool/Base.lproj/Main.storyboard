@@ -294,12 +294,16 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="vow-Eh-uYx"/>
                                 </constraints>
-                                <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectAny" id="x8L-4N-aZx">
+                                <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="momentary" id="x8L-4N-aZx">
                                     <font key="font" metaFont="system"/>
                                     <segments>
-                                        <segment image="NSPathTemplate" width="66"/>
-                                        <segment width="65" selected="YES" tag="1"/>
-                                        <segment width="65">
+                                        <segment image="NSGoLeftTemplate" width="66">
+                                            <nil key="label"/>
+                                        </segment>
+                                        <segment image="NSSlideshowTemplate" width="65" tag="1">
+                                            <nil key="label"/>
+                                        </segment>
+                                        <segment image="NSGoRightTemplate" width="65">
                                             <nil key="label"/>
                                         </segment>
                                     </segments>
@@ -373,6 +377,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="NSPathTemplate" width="16" height="10"/>
+        <image name="NSGoLeftTemplate" width="9" height="12"/>
+        <image name="NSGoRightTemplate" width="9" height="12"/>
+        <image name="NSSlideshowTemplate" width="17" height="14"/>
     </resources>
 </document>
