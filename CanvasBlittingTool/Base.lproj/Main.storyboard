@@ -315,32 +315,27 @@
                                     <action selector="forwardControlAction:" target="XfG-lQ-9wD" id="8mY-zZ-jzF"/>
                                 </connections>
                             </segmentedControl>
-                            <box autoresizesSubviews="NO" title="Box" borderType="line" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="8Si-FK-Xhr">
-                                <rect key="frame" x="17" y="45" width="206" height="328"/>
-                                <view key="contentView">
-                                    <rect key="frame" x="1" y="1" width="204" height="326"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                </view>
-                                <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                                <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </box>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jcP-Hu-WF3">
+                                <rect key="frame" x="17" y="46" width="206" height="328"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="0rv-XU-6Xp"/>
+                            </imageView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="8Si-FK-Xhr" firstAttribute="centerX" secondItem="a1w-0P-X9m" secondAttribute="centerX" id="Emt-g0-Vvu"/>
+                            <constraint firstItem="8k7-9l-p6g" firstAttribute="leading" secondItem="jcP-Hu-WF3" secondAttribute="trailing" constant="25" id="CA1-pz-CDT"/>
                             <constraint firstAttribute="trailing" secondItem="MNU-an-XBJ" secondAttribute="trailing" constant="20" id="Fv5-kg-eOi"/>
                             <constraint firstItem="9Y0-QP-u1A" firstAttribute="top" secondItem="8k7-9l-p6g" secondAttribute="bottom" constant="20" id="H5u-L0-sFT"/>
-                            <constraint firstItem="9Y0-QP-u1A" firstAttribute="leading" secondItem="8Si-FK-Xhr" secondAttribute="trailing" constant="25" id="IMP-EP-HuF"/>
-                            <constraint firstItem="a1w-0P-X9m" firstAttribute="top" secondItem="8Si-FK-Xhr" secondAttribute="bottom" constant="8" id="KaD-zR-qOD"/>
+                            <constraint firstItem="a1w-0P-X9m" firstAttribute="top" secondItem="jcP-Hu-WF3" secondAttribute="bottom" constant="8" id="IFc-fE-8Lz"/>
+                            <constraint firstItem="jcP-Hu-WF3" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="Mus-PD-19K"/>
+                            <constraint firstItem="MNU-an-XBJ" firstAttribute="leading" secondItem="jcP-Hu-WF3" secondAttribute="trailing" constant="25" id="Ref-tM-mO0"/>
                             <constraint firstItem="8k7-9l-p6g" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="Scu-Bi-qHj"/>
                             <constraint firstAttribute="bottom" secondItem="a1w-0P-X9m" secondAttribute="bottom" constant="20" id="WaJ-lE-S0v"/>
                             <constraint firstItem="MNU-an-XBJ" firstAttribute="top" secondItem="9Y0-QP-u1A" secondAttribute="bottom" constant="8" id="Zpr-QY-31x"/>
-                            <constraint firstItem="MNU-an-XBJ" firstAttribute="leading" secondItem="8Si-FK-Xhr" secondAttribute="trailing" constant="25" id="Zz9-My-9mD"/>
-                            <constraint firstItem="8k7-9l-p6g" firstAttribute="leading" secondItem="8Si-FK-Xhr" secondAttribute="trailing" constant="25" id="bIB-gB-l3l"/>
-                            <constraint firstItem="8Si-FK-Xhr" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="fKi-49-tz8"/>
                             <constraint firstAttribute="trailing" secondItem="8k7-9l-p6g" secondAttribute="trailing" constant="20" id="msu-3l-Vaz"/>
                             <constraint firstAttribute="trailing" secondItem="9Y0-QP-u1A" secondAttribute="trailing" constant="20" id="nAF-ZU-F9i"/>
                             <constraint firstAttribute="bottom" secondItem="MNU-an-XBJ" secondAttribute="bottom" constant="20" id="oXB-tM-IRh"/>
-                            <constraint firstItem="8Si-FK-Xhr" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="y3j-c7-C1V"/>
+                            <constraint firstItem="a1w-0P-X9m" firstAttribute="centerX" secondItem="jcP-Hu-WF3" secondAttribute="centerX" id="tnI-iu-xya"/>
+                            <constraint firstItem="jcP-Hu-WF3" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="v53-l9-Sld"/>
+                            <constraint firstItem="9Y0-QP-u1A" firstAttribute="leading" secondItem="jcP-Hu-WF3" secondAttribute="trailing" constant="25" id="x9F-bP-drb"/>
                         </constraints>
                     </view>
                     <connections>

@@ -21,8 +21,6 @@ class ViewController: NSViewController {
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
     }
     
     override var representedObject: AnyObject?
@@ -35,7 +33,6 @@ class ViewController: NSViewController {
     
     @IBAction func openFileAction(sender: NSButton)
     {
-        
         var dialog = NSOpenPanel();
         dialog.canChooseFiles = true;
         dialog.allowsMultipleSelection = true;
