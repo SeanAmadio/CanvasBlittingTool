@@ -10,18 +10,30 @@ import Cocoa
 
 class ViewController: NSViewController {
 
-    override func viewDidLoad() {
+    @IBOutlet weak var blockSizePopup: NSPopUpButton!
+    @IBOutlet weak var frameratePopup: NSPopUpButton!
+    @IBOutlet weak var hashComparisonCheck: NSButton!
+    @IBOutlet weak var loopCheck: NSButton!
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
-
-    override var representedObject: AnyObject? {
-        didSet {
-        // Update the view, if already loaded.
+    
+    override var representedObject: AnyObject?
+        {
+        didSet
+        {
+            // Update the view, if already loaded.
         }
     }
-
+    
+    @IBAction func openFileAction(sender: NSButton)
+    {
+        NSLog("Open File");
+    }
 
 }
 

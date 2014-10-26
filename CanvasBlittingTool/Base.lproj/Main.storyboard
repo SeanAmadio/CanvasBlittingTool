@@ -215,6 +215,9 @@
                                 <buttonCell key="cell" type="push" title="Open File..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Mi6-mE-PX7">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
+                                    <connections>
+                                        <action selector="openFileAction:" target="XfG-lQ-9wD" id="aRR-s1-t3T"/>
+                                    </connections>
                                 </buttonCell>
                             </button>
                             <box autoresizesSubviews="NO" title="Animation Settings" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="9Y0-QP-u1A">
@@ -308,6 +311,9 @@
                                         </segment>
                                     </segments>
                                 </segmentedCell>
+                                <connections>
+                                    <action selector="forwardControlAction:" target="XfG-lQ-9wD" id="8mY-zZ-jzF"/>
+                                </connections>
                             </segmentedControl>
                             <box autoresizesSubviews="NO" title="Box" borderType="line" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="8Si-FK-Xhr">
                                 <rect key="frame" x="17" y="45" width="206" height="328"/>
@@ -337,6 +343,12 @@
                             <constraint firstItem="8Si-FK-Xhr" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="y3j-c7-C1V"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="blockSizePopup" destination="Ovh-ia-Fs2" id="tgu-eM-6FL"/>
+                        <outlet property="frameratePopup" destination="uqT-h4-Kcs" id="s4f-Xo-TA6"/>
+                        <outlet property="hashComparisonCheck" destination="bTa-1f-9Qn" id="xug-lW-MEE"/>
+                        <outlet property="loopCheck" destination="3RU-9B-eTl" id="kYk-CY-Q8a"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <popUpButtonCell type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="ygu-DM-8b7" id="xzO-M8-rFu">
