@@ -269,7 +269,7 @@
                                                 <font key="font" metaFont="menu"/>
                                                 <menu key="menu" id="14m-Ei-gxm">
                                                     <items>
-                                                        <menuItem title="30 fps" state="on" id="JRZ-iH-Qo6"/>
+                                                        <menuItem title="30 fps" id="JRZ-iH-Qo6"/>
                                                         <menuItem title="60 fps" id="KfP-fF-fc2"/>
                                                     </items>
                                                 </menu>

@@ -32,7 +32,23 @@ class ViewController: NSViewController {
     
     @IBAction func openFileAction(sender: NSButton)
     {
-        NSLog("Open File");
+        
+        var dialog = NSOpenPanel();
+        dialog.canChooseFiles = true;
+        dialog.allowsMultipleSelection = true;
+        dialog.canChooseDirectories = false;
+        
+        dialog.beginWithCompletionHandler { (Int result) -> Void in
+            if (result == NSFileHandlingPanelOKButton)
+            {
+                var urls = dialog.URLs;
+                
+                for object in urls
+                {
+                    NSLog(object.description);
+                }
+            }
+        };
     }
 
 }
