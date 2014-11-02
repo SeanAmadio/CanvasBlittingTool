@@ -146,7 +146,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <tabView initialItem="oB8-Re-bfi" translatesAutoresizingMaskIntoConstraints="NO" id="MNU-an-XBJ">
-                                <rect key="frame" x="238" y="10" width="229" height="172"/>
+                                <rect key="frame" x="238" y="39" width="229" height="143"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="215" id="OSQ-MD-C3K"/>
                                 </constraints>
@@ -154,19 +154,21 @@
                                 <tabViewItems>
                                     <tabViewItem label="GIF" identifier="1" id="Pml-89-LRx">
                                         <view key="view" id="49t-h8-kSA">
+                                            <rect key="frame" x="10" y="33" width="209" height="97"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </view>
                                     </tabViewItem>
                                     <tabViewItem label="JPEG" identifier="2" id="b0d-SV-m4M">
                                         <view key="view" id="lZ1-Pb-iDm">
+                                            <rect key="frame" x="10" y="33" width="209" height="97"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nDk-aN-T6q">
-                                                    <rect key="frame" x="15" y="-44" width="179" height="21"/>
+                                                    <rect key="frame" x="15" y="53" width="179" height="21"/>
                                                     <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="PEp-6R-END"/>
                                                 </slider>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xaa-LQ-YmI">
-                                                    <rect key="frame" x="17" y="-20" width="86" height="17"/>
+                                                    <rect key="frame" x="17" y="77" width="86" height="17"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Quality" id="mkU-vw-G1E">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -174,7 +176,7 @@
                                                     </textFieldCell>
                                                 </textField>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JYU-1F-2Ez">
-                                                    <rect key="frame" x="136" y="-20" width="56" height="17"/>
+                                                    <rect key="frame" x="136" y="77" width="56" height="17"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="50" id="XUD-Oc-Y44">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -182,16 +184,9 @@
                                                     </textFieldCell>
                                                 </textField>
                                                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Hy-Py-4ue">
-                                                    <rect key="frame" x="17" y="-66" width="94" height="18"/>
+                                                    <rect key="frame" x="17" y="31" width="94" height="18"/>
                                                     <buttonCell key="cell" type="check" title="Progressive" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Le1-CA-ak6">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                        <font key="font" metaFont="system"/>
-                                                    </buttonCell>
-                                                </button>
-                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e4d-vf-POt">
-                                                    <rect key="frame" x="44" y="-116" width="120" height="32"/>
-                                                    <buttonCell key="cell" type="push" title="Save as JPEG" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="73p-yY-2Md">
-                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="system"/>
                                                     </buttonCell>
                                                 </button>
@@ -212,7 +207,7 @@
                                     <constraint firstAttribute="width" constant="215" id="R7t-le-CQg"/>
                                     <constraint firstAttribute="height" constant="21" id="T6g-yd-qa7"/>
                                 </constraints>
-                                <buttonCell key="cell" type="push" title="Open File..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Mi6-mE-PX7">
+                                <buttonCell key="cell" type="push" title="Open Files..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Mi6-mE-PX7">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                     <connections>
@@ -315,10 +310,21 @@
                                     <action selector="forwardControlAction:" target="XfG-lQ-9wD" id="8mY-zZ-jzF"/>
                                 </connections>
                             </segmentedControl>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jcP-Hu-WF3" customClass="CBTAnimationView" customModule="CanvasBlittingTool" customModuleProvider="target">
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jcP-Hu-WF3">
                                 <rect key="frame" x="17" y="46" width="206" height="328"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="0rv-XU-6Xp"/>
                             </imageView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lj5-hD-AoA">
+                                <rect key="frame" x="239" y="13" width="227" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="215" id="5zb-PY-QSE"/>
+                                    <constraint firstAttribute="height" constant="21" id="zXy-T6-4UY"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="Save Animation..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="MZP-U7-ulL">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="8k7-9l-p6g" firstAttribute="leading" secondItem="jcP-Hu-WF3" secondAttribute="trailing" constant="25" id="CA1-pz-CDT"/>
@@ -327,15 +333,17 @@
                             <constraint firstItem="a1w-0P-X9m" firstAttribute="top" secondItem="jcP-Hu-WF3" secondAttribute="bottom" constant="8" id="IFc-fE-8Lz"/>
                             <constraint firstItem="jcP-Hu-WF3" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="Mus-PD-19K"/>
                             <constraint firstItem="MNU-an-XBJ" firstAttribute="leading" secondItem="jcP-Hu-WF3" secondAttribute="trailing" constant="25" id="Ref-tM-mO0"/>
+                            <constraint firstItem="lj5-hD-AoA" firstAttribute="top" secondItem="MNU-an-XBJ" secondAttribute="bottom" constant="8" id="S80-49-cJI"/>
                             <constraint firstItem="8k7-9l-p6g" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="Scu-Bi-qHj"/>
                             <constraint firstAttribute="bottom" secondItem="a1w-0P-X9m" secondAttribute="bottom" constant="20" id="WaJ-lE-S0v"/>
                             <constraint firstItem="MNU-an-XBJ" firstAttribute="top" secondItem="9Y0-QP-u1A" secondAttribute="bottom" constant="8" id="Zpr-QY-31x"/>
+                            <constraint firstAttribute="bottom" secondItem="lj5-hD-AoA" secondAttribute="bottom" constant="20" id="lhD-Oc-U5I"/>
                             <constraint firstAttribute="trailing" secondItem="8k7-9l-p6g" secondAttribute="trailing" constant="20" id="msu-3l-Vaz"/>
                             <constraint firstAttribute="trailing" secondItem="9Y0-QP-u1A" secondAttribute="trailing" constant="20" id="nAF-ZU-F9i"/>
-                            <constraint firstAttribute="bottom" secondItem="MNU-an-XBJ" secondAttribute="bottom" constant="20" id="oXB-tM-IRh"/>
                             <constraint firstItem="a1w-0P-X9m" firstAttribute="centerX" secondItem="jcP-Hu-WF3" secondAttribute="centerX" id="tnI-iu-xya"/>
                             <constraint firstItem="jcP-Hu-WF3" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="v53-l9-Sld"/>
                             <constraint firstItem="9Y0-QP-u1A" firstAttribute="leading" secondItem="jcP-Hu-WF3" secondAttribute="trailing" constant="25" id="x9F-bP-drb"/>
+                            <constraint firstAttribute="trailing" secondItem="lj5-hD-AoA" secondAttribute="trailing" constant="20" id="zG3-5I-3e4"/>
                         </constraints>
                     </view>
                     <connections>
