@@ -254,7 +254,7 @@
                                     <action selector="forwardControlAction:" target="XfG-lQ-9wD" id="8mY-zZ-jzF"/>
                                 </connections>
                             </segmentedControl>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jcP-Hu-WF3">
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jcP-Hu-WF3" customClass="CBTAnimationView" customModule="CanvasBlittingTool" customModuleProvider="target">
                                 <rect key="frame" x="17" y="46" width="206" height="351"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="DkY-nu-m2c"/>
@@ -351,6 +351,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="animationView" destination="jcP-Hu-WF3" id="WIW-cF-LQm"/>
                         <outlet property="blockSizePopup" destination="Ovh-ia-Fs2" id="tgu-eM-6FL"/>
                         <outlet property="frameratePopup" destination="uqT-h4-Kcs" id="s4f-Xo-TA6"/>
                         <outlet property="hashComparisonCheck" destination="bTa-1f-9Qn" id="xug-lW-MEE"/>
