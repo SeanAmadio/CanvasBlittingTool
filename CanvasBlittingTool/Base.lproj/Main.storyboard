@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A388a" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B17" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6250"/>
     </dependencies>
@@ -142,67 +142,11 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="CanvasBlittingTool" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="391"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="414"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <tabView initialItem="oB8-Re-bfi" translatesAutoresizingMaskIntoConstraints="NO" id="MNU-an-XBJ">
-                                <rect key="frame" x="238" y="39" width="229" height="143"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="215" id="OSQ-MD-C3K"/>
-                                </constraints>
-                                <font key="font" metaFont="system"/>
-                                <tabViewItems>
-                                    <tabViewItem label="GIF" identifier="1" id="Pml-89-LRx">
-                                        <view key="view" id="49t-h8-kSA">
-                                            <rect key="frame" x="10" y="33" width="209" height="97"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        </view>
-                                    </tabViewItem>
-                                    <tabViewItem label="JPEG" identifier="2" id="b0d-SV-m4M">
-                                        <view key="view" id="lZ1-Pb-iDm">
-                                            <rect key="frame" x="10" y="33" width="209" height="97"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <subviews>
-                                                <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nDk-aN-T6q">
-                                                    <rect key="frame" x="15" y="53" width="179" height="21"/>
-                                                    <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="PEp-6R-END"/>
-                                                </slider>
-                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xaa-LQ-YmI">
-                                                    <rect key="frame" x="17" y="77" width="86" height="17"/>
-                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Quality" id="mkU-vw-G1E">
-                                                        <font key="font" metaFont="system"/>
-                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                    </textFieldCell>
-                                                </textField>
-                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JYU-1F-2Ez">
-                                                    <rect key="frame" x="136" y="77" width="56" height="17"/>
-                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="50" id="XUD-Oc-Y44">
-                                                        <font key="font" metaFont="system"/>
-                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                    </textFieldCell>
-                                                </textField>
-                                                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Hy-Py-4ue">
-                                                    <rect key="frame" x="17" y="31" width="94" height="18"/>
-                                                    <buttonCell key="cell" type="check" title="Progressive" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Le1-CA-ak6">
-                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                        <font key="font" metaFont="system"/>
-                                                    </buttonCell>
-                                                </button>
-                                            </subviews>
-                                        </view>
-                                    </tabViewItem>
-                                    <tabViewItem label="PNG" identifier="1" id="oB8-Re-bfi">
-                                        <view key="view" id="Jxx-LG-IoT">
-                                            <rect key="frame" x="10" y="33" width="209" height="126"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        </view>
-                                    </tabViewItem>
-                                </tabViewItems>
-                            </tabView>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8k7-9l-p6g">
-                                <rect key="frame" x="239" y="343" width="227" height="32"/>
+                                <rect key="frame" x="239" y="366" width="227" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="215" id="R7t-le-CQg"/>
                                     <constraint firstAttribute="height" constant="21" id="T6g-yd-qa7"/>
@@ -216,7 +160,7 @@
                                 </buttonCell>
                             </button>
                             <box autoresizesSubviews="NO" title="Animation Settings" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="9Y0-QP-u1A">
-                                <rect key="frame" x="242" y="180" width="221" height="150"/>
+                                <rect key="frame" x="242" y="203" width="221" height="150"/>
                                 <view key="contentView">
                                     <rect key="frame" x="1" y="1" width="219" height="134"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -311,7 +255,10 @@
                                 </connections>
                             </segmentedControl>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jcP-Hu-WF3">
-                                <rect key="frame" x="17" y="46" width="206" height="328"/>
+                                <rect key="frame" x="17" y="46" width="206" height="351"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="DkY-nu-m2c"/>
+                                </constraints>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="0rv-XU-6Xp"/>
                             </imageView>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lj5-hD-AoA">
@@ -325,6 +272,63 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                             </button>
+                            <tabView initialItem="oB8-Re-bfi" translatesAutoresizingMaskIntoConstraints="NO" id="MNU-an-XBJ">
+                                <rect key="frame" x="238" y="39" width="229" height="166"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="215" id="OSQ-MD-C3K"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="qbr-UZ-QNa"/>
+                                </constraints>
+                                <font key="font" metaFont="system"/>
+                                <tabViewItems>
+                                    <tabViewItem label="GIF" identifier="1" id="Pml-89-LRx">
+                                        <view key="view" id="49t-h8-kSA">
+                                            <rect key="frame" x="10" y="33" width="209" height="97"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </view>
+                                    </tabViewItem>
+                                    <tabViewItem label="JPEG" identifier="2" id="b0d-SV-m4M">
+                                        <view key="view" id="lZ1-Pb-iDm">
+                                            <rect key="frame" x="10" y="33" width="209" height="120"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nDk-aN-T6q">
+                                                    <rect key="frame" x="15" y="76" width="179" height="21"/>
+                                                    <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="PEp-6R-END"/>
+                                                </slider>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xaa-LQ-YmI">
+                                                    <rect key="frame" x="17" y="100" width="86" height="17"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Quality" id="mkU-vw-G1E">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JYU-1F-2Ez">
+                                                    <rect key="frame" x="136" y="100" width="56" height="17"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="50" id="XUD-Oc-Y44">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Hy-Py-4ue">
+                                                    <rect key="frame" x="17" y="54" width="94" height="18"/>
+                                                    <buttonCell key="cell" type="check" title="Progressive" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Le1-CA-ak6">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                </button>
+                                            </subviews>
+                                        </view>
+                                    </tabViewItem>
+                                    <tabViewItem label="PNG" identifier="1" id="oB8-Re-bfi">
+                                        <view key="view" id="Jxx-LG-IoT">
+                                            <rect key="frame" x="10" y="33" width="209" height="126"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </view>
+                                    </tabViewItem>
+                                </tabViewItems>
+                            </tabView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="8k7-9l-p6g" firstAttribute="leading" secondItem="jcP-Hu-WF3" secondAttribute="trailing" constant="25" id="CA1-pz-CDT"/>
