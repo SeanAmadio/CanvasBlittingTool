@@ -9,55 +9,14 @@
 import Cocoa
 
 class CBTAnimationView: NSImageView {
-
-    var displayLink: Unmanaged<CVDisplayLink>?;
-    var displayLinkObject: CVDisplayLink?;
     
-    override init() {
-        super.init();
-        CVDisplayLinkCreateWithActiveCGDisplays(&displayLink);
-        
-        let p = UnsafeMutablePointer<(displayLink: CVDisplayLink!,
-            inNow: UnsafePointer<CVTimeStamp>,
-            inOutputTime: UnsafePointer<CVTimeStamp>,
-            flagsIn: CVOptionFlags,
-            flagsOut: UnsafeMutablePointer<CVOptionFlags>,
-            context: UnsafeMutablePointer<Void>) -> CVReturn>.alloc(1) // allocate memory for function
-        p.initialize(dlCallback); // initialize with value
-        
-        let fp = CFunctionPointer<(displayLink: CVDisplayLink!,
-            inNow: UnsafePointer<CVTimeStamp>,
-            inOutputTime: UnsafePointer<CVTimeStamp>,
-            flagsIn: CVOptionFlags,
-            flagsOut: UnsafeMutablePointer<CVOptionFlags>,
-            context: UnsafeMutablePointer<Void>) -> CVReturn>(COpaquePointer(p)) // convert
-       
-        let typedPointer = UnsafeMutablePointer<CBTAnimationView>.alloc(1);
-        typedPointer.initialize(self);
-        
-        let voidPointer = UnsafeMutablePointer<Void>(typedPointer);
-        
-        //CVDisplayLinkSetOutputCallback(displayLinkObject, fp, voidPointer);
-    }
-
     required init?(coder: NSCoder) {
         super.init(coder: coder);
     }
     
-    func dlCallback(displayLink: CVDisplayLink!,
-        inNow: UnsafePointer<CVTimeStamp>,
-        inOutputTime: UnsafePointer<CVTimeStamp>,
-        flagsIn: CVOptionFlags,
-        flagsOut: UnsafeMutablePointer<CVOptionFlags>,
-        context: UnsafeMutablePointer<Void>) -> CVReturn {
-            let viewPoint = UnsafeMutablePointer<CBTAnimationView>(context);
-            return viewPoint.memory.drawFrame(inOutputTime);
-    }
-    
-    func drawFrame (outputTime: UnsafePointer<CVTimeStamp>) -> CVReturn
+    func setAnimation(images: [NSImage?])
     {
-        //Do shit
-        return 0;
+        self.image = images.last!;
     }
 
     override func drawRect(dirtyRect: NSRect) {
