@@ -14,27 +14,28 @@ class CBTAnimationView: NSImageView {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder);
+        self.wantsLayer = true;
+        self.layerContentsPlacement = NSViewLayerContentsPlacement.ScaleProportionallyToFit;
     }
     
     func setAnimation(images: [AnyObject])
     {
         self.imageArray = images;
-        
-        var layer = CALayer();
+    }
+    
+    func startAnimation(fps: Int)
+    {
+        self.layer?.removeAllAnimations();
         
         var animation = CAKeyframeAnimation(keyPath: "contents");
         animation.calculationMode = kCAAnimationDiscrete;
-        animation.duration = 2;
+        animation.duration = CFTimeInterval(Double(self.imageArray!.count)/Double(fps));
         animation.repeatCount = Float.infinity;
         animation.values = self.imageArray!;
         
-        layer.frame = NSMakeRect(0, 0, self.bounds.width, self.bounds.height);
-        layer.bounds = NSMakeRect(0, 0, self.bounds.width, self.bounds.height);
-        layer.addAnimation(animation, forKey: "contents");
-        
-        //Add to the NSImageView layer
-        self.layer = layer;
-        self.wantsLayer = true;
+        CATransaction.begin();
+        self.layer?.addAnimation(animation, forKey: "contents");
+        CATransaction.commit();
     }
 
     override func drawRect(dirtyRect: NSRect) {

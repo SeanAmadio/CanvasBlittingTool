@@ -12,6 +12,7 @@ import Foundation
 class ViewController: NSViewController {
 
     @IBOutlet weak var blockSizePopup: NSPopUpButton!
+    //The selected item will have a tag number equal to its framerate
     @IBOutlet weak var frameratePopup: NSPopUpButton!
     @IBOutlet weak var hashComparisonCheck: NSButton!
     @IBOutlet weak var loopCheck: NSButton!
@@ -21,7 +22,7 @@ class ViewController: NSViewController {
     
     override func viewDidLoad()
     {
-        super.viewDidLoad()
+        super.viewDidLoad();
     }
     
     override var representedObject: AnyObject?
@@ -65,6 +66,7 @@ class ViewController: NSViewController {
                 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
                     imageLoadQueue.waitUntilAllOperationsAreFinished();
                     self.animationView.setAnimation(self.imageArray);
+                    self.animationView.startAnimation(self.frameratePopup.selectedTag());
                 });
             }
         };

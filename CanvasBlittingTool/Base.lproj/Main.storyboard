@@ -181,7 +181,7 @@
                                         </popUpButton>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3RU-9B-eTl">
                                             <rect key="frame" x="16" y="12" width="142" height="31"/>
-                                            <buttonCell key="cell" type="check" title="Loop" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="LlC-n9-6cM">
+                                            <buttonCell key="cell" type="check" title="Loop" bezelStyle="regularSquare" imagePosition="left" inset="2" id="LlC-n9-6cM">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
@@ -196,20 +196,20 @@
                                         </textField>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bTa-1f-9Qn">
                                             <rect key="frame" x="16" y="40" width="170" height="18"/>
-                                            <buttonCell key="cell" type="check" title="Use hash comparison" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="vc2-sr-mNd">
+                                            <buttonCell key="cell" type="check" title="Use hash comparison" bezelStyle="regularSquare" imagePosition="left" inset="2" id="vc2-sr-mNd">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                         </button>
                                         <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uqT-h4-Kcs">
                                             <rect key="frame" x="104" y="69" width="100" height="26"/>
-                                            <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="vHD-H1-fBQ">
+                                            <popUpButtonCell key="cell" type="push" title="60 fps" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="60" imageScaling="proportionallyDown" inset="2" selectedItem="KfP-fF-fc2" id="vHD-H1-fBQ">
                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="menu"/>
                                                 <menu key="menu" id="14m-Ei-gxm">
                                                     <items>
-                                                        <menuItem title="30 fps" id="JRZ-iH-Qo6"/>
-                                                        <menuItem title="60 fps" id="KfP-fF-fc2"/>
+                                                        <menuItem title="30 fps" tag="30" id="JRZ-iH-Qo6"/>
+                                                        <menuItem title="60 fps" state="on" tag="60" id="KfP-fF-fc2"/>
                                                     </items>
                                                 </menu>
                                             </popUpButtonCell>
