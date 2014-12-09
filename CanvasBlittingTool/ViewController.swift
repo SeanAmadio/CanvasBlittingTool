@@ -17,7 +17,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var loopCheck: NSButton!
     @IBOutlet weak var animationView: CBTAnimationView!
     
-    var imageArray:[NSImage?] = [];
+    var imageArray:[AnyObject] = [];
     
     override func viewDidLoad()
     {
@@ -25,7 +25,7 @@ class ViewController: NSViewController {
     }
     
     override var representedObject: AnyObject?
-        {
+    {
         didSet
         {
             // Update the view, if already loaded.
@@ -49,7 +49,8 @@ class ViewController: NSViewController {
             {
                 var urls = dialog.URLs;
                 
-                self.imageArray = [NSImage?](count: urls.count, repeatedValue: nil);
+                //File our image array with place holder blank objects
+                self.imageArray = [AnyObject](count: urls.count, repeatedValue: NSNull());
                 for (index, object) in enumerate(urls)
                 {
                     var url = object as NSURL;

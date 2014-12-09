@@ -10,13 +10,31 @@ import Cocoa
 
 class CBTAnimationView: NSImageView {
     
+    var imageArray:[AnyObject]?;
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder);
     }
     
-    func setAnimation(images: [NSImage?])
+    func setAnimation(images: [AnyObject])
     {
-        self.image = images.last!;
+        self.imageArray = images;
+        
+        var layer = CALayer();
+        
+        var animation = CAKeyframeAnimation(keyPath: "contents");
+        animation.calculationMode = kCAAnimationDiscrete;
+        animation.duration = 2;
+        animation.repeatCount = Float.infinity;
+        animation.values = self.imageArray!;
+        
+        layer.frame = NSMakeRect(0, 0, self.bounds.width, self.bounds.height);
+        layer.bounds = NSMakeRect(0, 0, self.bounds.width, self.bounds.height);
+        layer.addAnimation(animation, forKey: "contents");
+        
+        //Add to the NSImageView layer
+        self.layer = layer;
+        self.wantsLayer = true;
     }
 
     override func drawRect(dirtyRect: NSRect) {
