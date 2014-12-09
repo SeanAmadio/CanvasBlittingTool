@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD76FD6A1A369A4A007C6FA7 /* CBTConversionOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD76FD691A369A4A007C6FA7 /* CBTConversionOperation.swift */; };
 		DDCC425719FD7C63006235A2 /* CBTAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC425619FD7C63006235A2 /* CBTAnimationView.swift */; };
 		DDEED60019F6238300F38C77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEED5FF19F6238300F38C77 /* AppDelegate.swift */; };
 		DDEED60219F6238300F38C77 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEED60119F6238300F38C77 /* ViewController.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DD76FD691A369A4A007C6FA7 /* CBTConversionOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBTConversionOperation.swift; sourceTree = "<group>"; };
 		DDCC425619FD7C63006235A2 /* CBTAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBTAnimationView.swift; sourceTree = "<group>"; };
 		DDEED5FA19F6238300F38C77 /* CanvasBlittingTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CanvasBlittingTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDEED5FE19F6238300F38C77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				DDEED60319F6238300F38C77 /* Images.xcassets */,
 				DDEED60519F6238300F38C77 /* Main.storyboard */,
 				DDEED5FD19F6238300F38C77 /* Supporting Files */,
+				DD76FD691A369A4A007C6FA7 /* CBTConversionOperation.swift */,
 			);
 			path = CanvasBlittingTool;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 				DDCC425719FD7C63006235A2 /* CBTAnimationView.swift in Sources */,
 				DDEED60219F6238300F38C77 /* ViewController.swift in Sources */,
 				DDEED60019F6238300F38C77 /* AppDelegate.swift in Sources */,
+				DD76FD6A1A369A4A007C6FA7 /* CBTConversionOperation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

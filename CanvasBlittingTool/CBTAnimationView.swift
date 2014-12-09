@@ -18,11 +18,13 @@ class CBTAnimationView: NSImageView {
         self.layerContentsPlacement = NSViewLayerContentsPlacement.ScaleProportionallyToFit;
     }
     
+    //Set up our animation view with the images
     func setAnimation(images: [AnyObject])
     {
         self.imageArray = images;
     }
     
+    //Starts/Restarts the animation with a given framerate
     func startAnimation(fps: Int)
     {
         self.layer?.removeAllAnimations();
@@ -38,9 +40,9 @@ class CBTAnimationView: NSImageView {
         CATransaction.commit();
     }
 
-    override func drawRect(dirtyRect: NSRect) {
+    override func drawRect(dirtyRect: NSRect)
+    {
         super.drawRect(dirtyRect)
-
         // Drawing code here.
     }
     
