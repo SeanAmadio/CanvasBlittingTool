@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		DD76FD6A1A369A4A007C6FA7 /* CBTConversionOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD76FD691A369A4A007C6FA7 /* CBTConversionOperation.swift */; };
+		DD76FD6C1A369F35007C6FA7 /* CBTCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD76FD6B1A369F35007C6FA7 /* CBTCoordinator.swift */; };
+		DD76FD721A36A5E2007C6FA7 /* CBTConvertFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD76FD711A36A5E2007C6FA7 /* CBTConvertFrame.swift */; };
+		DD76FD741A36A5FA007C6FA7 /* CBTConvertBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD76FD731A36A5FA007C6FA7 /* CBTConvertBlock.swift */; };
+		DD76FD761A36A622007C6FA7 /* CBTConvertAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD76FD751A36A622007C6FA7 /* CBTConvertAnimation.swift */; };
+		DD76FD781A36A699007C6FA7 /* CBTImageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD76FD771A36A699007C6FA7 /* CBTImageCoordinator.swift */; };
+		DD76FD7A1A36A6B8007C6FA7 /* CBTJSONCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD76FD791A36A6B8007C6FA7 /* CBTJSONCoordinator.swift */; };
+		DD76FD7C1A36A6CF007C6FA7 /* CBTJSONFrameCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD76FD7B1A36A6CF007C6FA7 /* CBTJSONFrameCoordinator.swift */; };
 		DDCC425719FD7C63006235A2 /* CBTAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC425619FD7C63006235A2 /* CBTAnimationView.swift */; };
 		DDEED60019F6238300F38C77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEED5FF19F6238300F38C77 /* AppDelegate.swift */; };
 		DDEED60219F6238300F38C77 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEED60119F6238300F38C77 /* ViewController.swift */; };
@@ -28,6 +35,13 @@
 
 /* Begin PBXFileReference section */
 		DD76FD691A369A4A007C6FA7 /* CBTConversionOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBTConversionOperation.swift; sourceTree = "<group>"; };
+		DD76FD6B1A369F35007C6FA7 /* CBTCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBTCoordinator.swift; sourceTree = "<group>"; };
+		DD76FD711A36A5E2007C6FA7 /* CBTConvertFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBTConvertFrame.swift; sourceTree = "<group>"; };
+		DD76FD731A36A5FA007C6FA7 /* CBTConvertBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBTConvertBlock.swift; sourceTree = "<group>"; };
+		DD76FD751A36A622007C6FA7 /* CBTConvertAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBTConvertAnimation.swift; sourceTree = "<group>"; };
+		DD76FD771A36A699007C6FA7 /* CBTImageCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBTImageCoordinator.swift; sourceTree = "<group>"; };
+		DD76FD791A36A6B8007C6FA7 /* CBTJSONCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBTJSONCoordinator.swift; sourceTree = "<group>"; };
+		DD76FD7B1A36A6CF007C6FA7 /* CBTJSONFrameCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBTJSONFrameCoordinator.swift; sourceTree = "<group>"; };
 		DDCC425619FD7C63006235A2 /* CBTAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBTAnimationView.swift; sourceTree = "<group>"; };
 		DDEED5FA19F6238300F38C77 /* CanvasBlittingTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CanvasBlittingTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDEED5FE19F6238300F38C77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -58,6 +72,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DD76FD6D1A36A530007C6FA7 /* Conversion */ = {
+			isa = PBXGroup;
+			children = (
+				DD76FD701A36A55D007C6FA7 /* Operations */,
+				DD76FD6E1A36A53A007C6FA7 /* Coordinators */,
+			);
+			name = Conversion;
+			sourceTree = "<group>";
+		};
+		DD76FD6E1A36A53A007C6FA7 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				DD76FD6B1A369F35007C6FA7 /* CBTCoordinator.swift */,
+				DD76FD771A36A699007C6FA7 /* CBTImageCoordinator.swift */,
+				DD76FD791A36A6B8007C6FA7 /* CBTJSONCoordinator.swift */,
+				DD76FD7B1A36A6CF007C6FA7 /* CBTJSONFrameCoordinator.swift */,
+			);
+			name = Coordinators;
+			sourceTree = "<group>";
+		};
+		DD76FD701A36A55D007C6FA7 /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				DD76FD691A369A4A007C6FA7 /* CBTConversionOperation.swift */,
+				DD76FD711A36A5E2007C6FA7 /* CBTConvertFrame.swift */,
+				DD76FD731A36A5FA007C6FA7 /* CBTConvertBlock.swift */,
+				DD76FD751A36A622007C6FA7 /* CBTConvertAnimation.swift */,
+			);
+			name = Operations;
+			sourceTree = "<group>";
+		};
 		DDEED5F119F6238300F38C77 = {
 			isa = PBXGroup;
 			children = (
@@ -79,13 +124,13 @@
 		DDEED5FC19F6238300F38C77 /* CanvasBlittingTool */ = {
 			isa = PBXGroup;
 			children = (
+				DD76FD6D1A36A530007C6FA7 /* Conversion */,
 				DDCC425619FD7C63006235A2 /* CBTAnimationView.swift */,
 				DDEED5FF19F6238300F38C77 /* AppDelegate.swift */,
 				DDEED60119F6238300F38C77 /* ViewController.swift */,
 				DDEED60319F6238300F38C77 /* Images.xcassets */,
 				DDEED60519F6238300F38C77 /* Main.storyboard */,
 				DDEED5FD19F6238300F38C77 /* Supporting Files */,
-				DD76FD691A369A4A007C6FA7 /* CBTConversionOperation.swift */,
 			);
 			path = CanvasBlittingTool;
 			sourceTree = "<group>";
@@ -214,10 +259,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD76FD7A1A36A6B8007C6FA7 /* CBTJSONCoordinator.swift in Sources */,
 				DDCC425719FD7C63006235A2 /* CBTAnimationView.swift in Sources */,
+				DD76FD6C1A369F35007C6FA7 /* CBTCoordinator.swift in Sources */,
 				DDEED60219F6238300F38C77 /* ViewController.swift in Sources */,
 				DDEED60019F6238300F38C77 /* AppDelegate.swift in Sources */,
 				DD76FD6A1A369A4A007C6FA7 /* CBTConversionOperation.swift in Sources */,
+				DD76FD781A36A699007C6FA7 /* CBTImageCoordinator.swift in Sources */,
+				DD76FD741A36A5FA007C6FA7 /* CBTConvertBlock.swift in Sources */,
+				DD76FD7C1A36A6CF007C6FA7 /* CBTJSONFrameCoordinator.swift in Sources */,
+				DD76FD761A36A622007C6FA7 /* CBTConvertAnimation.swift in Sources */,
+				DD76FD721A36A5E2007C6FA7 /* CBTConvertFrame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

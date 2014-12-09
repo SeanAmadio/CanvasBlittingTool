@@ -10,14 +10,6 @@ import Foundation
 
 class CBTConversionOperation: NSOperation
 {
-    
-    
-    
-    init (settings: NSDictionary)
-    {
-        
-    }
-    
     override var asynchronous : Bool
     {
         get
