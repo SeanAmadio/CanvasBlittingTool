@@ -10,12 +10,12 @@ import Foundation
 
 class CBTConversionOperation: NSOperation
 {
-    override var asynchronous : Bool
+    /*override var asynchronous : Bool
     {
         get
         {
             return true;
         }
-    }
+    }*/
 
 }
