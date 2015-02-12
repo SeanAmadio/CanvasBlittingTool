@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14D672D71A8D4B0000930340 /* NSImage+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D672D61A8D4B0000930340 /* NSImage+Operations.swift */; };
 		DD76FD6A1A369A4A007C6FA7 /* CBTConversionOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD76FD691A369A4A007C6FA7 /* CBTConversionOperation.swift */; };
 		DD76FD6C1A369F35007C6FA7 /* CBTCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD76FD6B1A369F35007C6FA7 /* CBTCoordinator.swift */; };
 		DD76FD721A36A5E2007C6FA7 /* CBTConvertFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD76FD711A36A5E2007C6FA7 /* CBTConvertFrame.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		14D672D61A8D4B0000930340 /* NSImage+Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSImage+Operations.swift"; sourceTree = "<group>"; };
 		DD76FD691A369A4A007C6FA7 /* CBTConversionOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBTConversionOperation.swift; sourceTree = "<group>"; };
 		DD76FD6B1A369F35007C6FA7 /* CBTCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBTCoordinator.swift; sourceTree = "<group>"; };
 		DD76FD711A36A5E2007C6FA7 /* CBTConvertFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBTConvertFrame.swift; sourceTree = "<group>"; };
@@ -72,6 +74,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		14D672D31A8D4A2900930340 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				14D672D61A8D4B0000930340 /* NSImage+Operations.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 		DD76FD6D1A36A530007C6FA7 /* Conversion */ = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +134,7 @@
 		DDEED5FC19F6238300F38C77 /* CanvasBlittingTool */ = {
 			isa = PBXGroup;
 			children = (
+				14D672D31A8D4A2900930340 /* Utilities */,
 				DD76FD6D1A36A530007C6FA7 /* Conversion */,
 				DDCC425619FD7C63006235A2 /* CBTAnimationView.swift */,
 				DDEED5FF19F6238300F38C77 /* AppDelegate.swift */,
@@ -265,6 +276,7 @@
 				DDEED60219F6238300F38C77 /* ViewController.swift in Sources */,
 				DDEED60019F6238300F38C77 /* AppDelegate.swift in Sources */,
 				DD76FD6A1A369A4A007C6FA7 /* CBTConversionOperation.swift in Sources */,
+				14D672D71A8D4B0000930340 /* NSImage+Operations.swift in Sources */,
 				DD76FD781A36A699007C6FA7 /* CBTImageCoordinator.swift in Sources */,
 				DD76FD741A36A5FA007C6FA7 /* CBTConvertBlock.swift in Sources */,
 				DD76FD7C1A36A6CF007C6FA7 /* CBTJSONFrameCoordinator.swift in Sources */,

@@ -11,9 +11,9 @@ import AppKit
 
 class CBTConvertAnimation: CBTConversionOperation
 {
-    var frames:[CGImage];
+    var frames:[NSImage];
     
-    init(frames:[CGImage])
+    init(frames:[NSImage])
     {
         self.frames = frames;
     }

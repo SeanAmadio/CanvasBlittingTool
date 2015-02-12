@@ -10,17 +10,30 @@ import AppKit
 
 class CBTConvertBlock: CBTConversionOperation
 {
-    var block:CGImage;
-    var lastBlock:CGImage?;
+    var position:CGPoint;
+    var block:NSImage;
+    var deltaBlock:NSImage?;
     
-    init(block:CGImage, lastBlock:CGImage?)
+    init(position: CGPoint, block:NSImage, deltaBlock:NSImage?)
     {
+        self.position = position;
         self.block = block;
-        self.lastBlock = lastBlock;
+        self.deltaBlock = deltaBlock;
     }
     
     override func start()
     {
-        
+        //If we have diffBlock data, do the comparison, otherwise assume the block is different and send the write
+        if let deltaBlockData = deltaBlock
+        {
+            if (!deltaBlockData.isBlack())
+            {
+                //Send a write operation to the imageCoordinator
+            }
+        }
+        else
+        {
+            //Send a write operation to the imageCoordinator
+        }
     }
 }
