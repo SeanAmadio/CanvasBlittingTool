@@ -20,6 +20,7 @@ class CBTConvertAnimation: CBTConversionOperation
     
     override func start()
     {
+        
         for var index = 0; index < frames.count; ++index
         {
             //For the first image we add a frame comparison with null to the queue so that we will get the initial state

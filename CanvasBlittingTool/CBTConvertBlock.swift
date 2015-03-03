@@ -10,11 +10,11 @@ import AppKit
 
 class CBTConvertBlock: CBTConversionOperation
 {
-    var position:CGPoint;
+    var position:BlockPoint;
     var block:NSImage;
     var deltaBlock:NSImage?;
     
-    init(position: CGPoint, block:NSImage, deltaBlock:NSImage?)
+    init(position: BlockPoint, block:NSImage, deltaBlock:NSImage?)
     {
         self.position = position;
         self.block = block;

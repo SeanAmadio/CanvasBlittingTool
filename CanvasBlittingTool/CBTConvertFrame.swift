@@ -29,8 +29,8 @@ class CBTConvertFrame: CBTConversionOperation
             //Composite the two frames to get the delta frame
             deltaFrameOptional = NSImage(size: frame.size);
             deltaFrameOptional!.lockFocus();
-            frame.drawAtPoint(CGPointMake(0.0,0.0), fromRect: CGRectZero, operation: NSCompositingOperation.CompositeCopy, fraction: 1.0);
-            lastFrame.drawAtPoint(CGPointMake(0.0,0.0), fromRect: CGRectZero, operation: NSCompositingOperation.CompositeDifference, fraction: 1.0);
+            frame.drawAtPoint(CGPointZero, fromRect: CGRectZero, operation: NSCompositingOperation.CompositeCopy, fraction: 1.0);
+            lastFrame.drawAtPoint(CGPointZero, fromRect: CGRectZero, operation: NSCompositingOperation.CompositeDifference, fraction: 1.0);
             deltaFrameOptional!.unlockFocus();
             
             //If the whole image is black, no writes need to be done for this frame
@@ -41,18 +41,18 @@ class CBTConvertFrame: CBTConversionOperation
         }
         
         //Loop through all of the blocks in the image
-        for var cellX = 0; cellX < Int(frame.size.width/8); ++cellX
+        var position = BlockPoint(x: 0, y: 0);
+        for position.x; position.pixelPoint.x < Int(frame.size.width); ++position.x
         {
-            for var cellY = 0; cellY < Int(frame.size.height/8); ++cellY
+            for position.y; position.pixelPoint.y < Int(frame.size.height); ++position.y
             {
                 //Create the new cropping rectangle and get a subimage from the current frame
-                var position = CGPointMake(CGFloat(cellX), CGFloat(cellY));
-                var blockRect = CGRectMake(CGFloat(cellX), CGFloat(cellY), CGFloat(cellSize), CGFloat(cellSize));
+                var blockRect = CGRectMake(position.point.x, position.point.y, CGFloat(8), CGFloat(8));
                 
                 //Write the subimage block of the current frame
                 var block = NSImage(size: blockRect.size);
                 block.lockFocus();
-                frame.drawAtPoint(CGPointMake(0.0,0.0), fromRect: blockRect, operation: NSCompositingOperation.CompositeCopy, fraction: 1.0);
+                frame.drawAtPoint(CGPointZero, fromRect: blockRect, operation: NSCompositingOperation.CompositeCopy, fraction: 1.0);
                 block.unlockFocus();
                 var deltaBlockOptional:NSImage?;
                 
@@ -61,7 +61,7 @@ class CBTConvertFrame: CBTConversionOperation
                     //Write the delta block to an image
                     deltaBlockOptional = NSImage(size: blockRect.size);
                     deltaBlockOptional!.lockFocus();
-                    deltaFrame.drawAtPoint(CGPointMake(0.0,0.0), fromRect: blockRect, operation: NSCompositingOperation.CompositeCopy, fraction: 1.0);
+                    deltaFrame.drawAtPoint(CGPointZero, fromRect: blockRect, operation: NSCompositingOperation.CompositeCopy, fraction: 1.0);
                     deltaBlockOptional!.unlockFocus();
                 }
                 
