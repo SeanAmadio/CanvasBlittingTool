@@ -21,7 +21,7 @@ class CBTConvertAnimation: CBTConversionOperation
         self.JSONCoordinator = CBTJSONCoordinator(frames: self.frames.count);
     }
     
-    override func start()
+    override func main()
     {
         NSLog("-[Convert Animation Start]");
         //Set the coordinators for the block content
@@ -41,6 +41,15 @@ class CBTConvertAnimation: CBTConversionOperation
             }
         }
         self.queue.waitUntilAllOperationsAreFinished();
+        
+        var docsDir = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0];
+        var databasePath = docsDir.stringByAppendingPathComponent("foo.png");
+        self.imageCoordinator.image.lockFocus();
+        var bitmapRep = NSBitmapImageRep(focusedViewRect: NSRect(origin: CGPointZero, size: self.imageCoordinator.image.size));
+        self.imageCoordinator.image.unlockFocus();
+        var data = bitmapRep?.representationUsingType(NSBitmapImageFileType.NSPNGFileType, properties: Dictionary<NSObject, AnyObject>());
+        data?.writeToFile(databasePath, atomically: false);
+        NSLog("%@", self.JSONCoordinator.data);
         NSLog("-[Convert Animation End]");
     }
 }

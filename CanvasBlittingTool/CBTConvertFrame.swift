@@ -20,7 +20,7 @@ class CBTConvertFrame: CBTConversionOperation
         self.frameNumber = frameNumber;
     }
     
-    override func start()
+    override func main()
     {
         NSLog("--[Convert Frame %i Start]", self.frameNumber);
         var deltaFrameOptional:NSImage?;
@@ -43,9 +43,9 @@ class CBTConvertFrame: CBTConversionOperation
         
         //Loop through all of the blocks in the image
         var position = BlockPoint(x: 0, y: 0);
-        for position.x; position.pixelPoint.x < Int(frame.size.width); ++position.x
+        for position.x = 0; position.x < Int(frame.size.width/8); position.x++
         {
-            for position.y; position.pixelPoint.y < Int(frame.size.height); ++position.y
+            for position.y = 0; position.y < Int(frame.size.height/8); position.y++
             {
                 //Create the new cropping rectangle and get a subimage from the current frame
                 var blockRect = CGRectMake(position.point.x, position.point.y, CGFloat(8), CGFloat(8));

@@ -26,7 +26,7 @@ class CBTConvertBlock: CBTConversionOperation
         self.deltaBlock = deltaBlock;
     }
     
-    override func start()
+    override func main()
     {
         NSLog("---[Convert Block %i,%i in Frame %i Start]", self.destinationPosition.x, self.destinationPosition.y, self.frameNumber);
         //If we have diffBlock data, do the comparison, otherwise assume the block is different and send the write
@@ -39,6 +39,7 @@ class CBTConvertBlock: CBTConversionOperation
                 CBTConvertBlock.imageCoordinator!.addBlock(block, callbackClosure: { (sourcePosition:BlockPoint) -> Void in
                     CBTConvertBlock.JSONCoordinator!.addBlockData([sourcePosition.x, sourcePosition.y, self.destinationPosition.x, self.destinationPosition.y], frame: self.frameNumber, callbackClosure: { () -> Void in
                         //Dispatch semaphore
+                        //NSLog("----Block has changes and was written");
                         dispatch_semaphore_signal(sem);
                     })
                 })
@@ -52,6 +53,7 @@ class CBTConvertBlock: CBTConversionOperation
             CBTConvertBlock.imageCoordinator!.addBlock(block, callbackClosure: { (sourcePosition:BlockPoint) -> Void in
                 CBTConvertBlock.JSONCoordinator!.addBlockData([sourcePosition.x, sourcePosition.y, self.destinationPosition.x, self.destinationPosition.y], frame: self.frameNumber, callbackClosure: { () -> Void in
                     //Dispatch semaphore
+                    //NSLog("----Block is in frame 0 and was written");
                     dispatch_semaphore_signal(sem);
                 })
             })

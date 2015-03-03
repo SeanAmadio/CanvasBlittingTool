@@ -13,4 +13,10 @@ class CBTConversionOperation: NSOperation
 {
     //The queue for any sub operations
     var queue:NSOperationQueue = NSOperationQueue();
+    
+    override init()
+    {
+        self.queue.maxConcurrentOperationCount = 1;
+        super.init();
+    }
 }
