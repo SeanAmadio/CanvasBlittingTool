@@ -28,6 +28,7 @@ class CBTConvertBlock: CBTConversionOperation
     
     override func start()
     {
+        NSLog("---[Convert Block %i,%i in Frame %i Start]", self.destinationPosition.x, self.destinationPosition.y, self.frameNumber);
         //If we have diffBlock data, do the comparison, otherwise assume the block is different and send the write
         if let deltaBlockData = deltaBlock
         {
@@ -56,5 +57,6 @@ class CBTConvertBlock: CBTConversionOperation
             })
             dispatch_semaphore_wait(sem, DISPATCH_TIME_FOREVER);
         }
+        NSLog("---[Convert Block %i,%i in Frame %i End]", self.destinationPosition.x, self.destinationPosition.y, self.frameNumber);
     }
 }

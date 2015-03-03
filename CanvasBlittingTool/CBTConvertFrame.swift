@@ -22,6 +22,7 @@ class CBTConvertFrame: CBTConversionOperation
     
     override func start()
     {
+        NSLog("--[Convert Frame %i Start]", self.frameNumber);
         var deltaFrameOptional:NSImage?;
         
         if let lastFrame = lastFrameOptional
@@ -70,5 +71,6 @@ class CBTConvertFrame: CBTConversionOperation
             }
         }
         self.queue.waitUntilAllOperationsAreFinished();
+        NSLog("--[Convert Frame %i End]", self.frameNumber);
     }
 }

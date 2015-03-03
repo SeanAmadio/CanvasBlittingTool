@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="6724" systemVersion="14B25" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="7519.1" systemVersion="14C109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6724"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7519.1"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -250,9 +250,6 @@
                                         </segment>
                                     </segments>
                                 </segmentedCell>
-                                <connections>
-                                    <action selector="forwardControlAction:" target="XfG-lQ-9wD" id="8mY-zZ-jzF"/>
-                                </connections>
                             </segmentedControl>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jcP-Hu-WF3" customClass="CBTAnimationView" customModule="CanvasBlittingTool" customModuleProvider="target">
                                 <rect key="frame" x="17" y="46" width="206" height="351"/>
@@ -271,6 +268,9 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="startConversion:" target="XfG-lQ-9wD" id="McA-Pw-c0M"/>
+                                </connections>
                             </button>
                             <tabView initialItem="oB8-Re-bfi" translatesAutoresizingMaskIntoConstraints="NO" id="MNU-an-XBJ">
                                 <rect key="frame" x="238" y="39" width="229" height="166"/>

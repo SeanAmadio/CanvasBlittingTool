@@ -45,7 +45,7 @@ class ViewController: NSViewController {
         var imageArrayLock = NSLock();
         var imageLoadQueue = NSOperationQueue();
         
-        dialog.beginWithCompletionHandler { (Int result) -> Void in
+        dialog.beginWithCompletionHandler { (result:Int) -> Void in
             if (result == NSFileHandlingPanelOKButton)
             {
                 var urls = dialog.URLs;
@@ -70,6 +70,14 @@ class ViewController: NSViewController {
                 });
             }
         };
+    }
+    
+    @IBAction func startConversion(sender: NSButton)
+    {
+        var conversionQueue = NSOperationQueue();
+        if let images = self.imageArray as? [NSImage] {
+            conversionQueue.addOperation(CBTConvertAnimation(frames: images));
+        }
     }
 
 }

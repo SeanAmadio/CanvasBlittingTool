@@ -23,6 +23,7 @@ class CBTConvertAnimation: CBTConversionOperation
     
     override func start()
     {
+        NSLog("-[Convert Animation Start]");
         //Set the coordinators for the block content
         CBTConvertBlock.imageCoordinator = self.imageCoordinator;
         CBTConvertBlock.JSONCoordinator = self.JSONCoordinator;
@@ -40,5 +41,6 @@ class CBTConvertAnimation: CBTConversionOperation
             }
         }
         self.queue.waitUntilAllOperationsAreFinished();
+        NSLog("-[Convert Animation End]");
     }
 }

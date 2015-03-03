@@ -13,9 +13,17 @@ extension NSImage
 {
     func isBlack()->Bool
     {
-        //Not sure if this is going to work or be efficient (probably not)
-        let black = NSImage(size: self.size);
-        black.backgroundColor = NSColor.blackColor();
-        return self.TIFFRepresentation!.isEqualToData(black.TIFFRepresentation!);
+        var data = NSBitmapImageRep(data: self.TIFFRepresentation!);
+        for var i = 0; i < Int(self.size.width); ++i
+        {
+            for var j = 0; j < Int(self.size.height); ++j
+            {
+                if (data?.colorAtX(i, y: j) != NSColor.blackColor())
+                {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }
