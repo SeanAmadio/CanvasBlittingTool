@@ -11,17 +11,17 @@ class CBTConvertFrame: CBTConversionOperation
 {
     var frame:NSImage;
     var lastFrameOptional:NSImage?;
+    var frameNumber:Int;
     
-    init(frame:NSImage, lastFrame:NSImage?)
+    init(frame:NSImage, lastFrame:NSImage?, frameNumber:Int)
     {
         self.frame = frame;
         self.lastFrameOptional = lastFrame;
+        self.frameNumber = frameNumber;
     }
     
     override func start()
     {
-        let cellSize = 8;
-        
         var deltaFrameOptional:NSImage?;
         
         if let lastFrame = lastFrameOptional
@@ -66,7 +66,7 @@ class CBTConvertFrame: CBTConversionOperation
                 }
                 
                 //Send the block comparison operation
-                self.queue.addOperation(CBTConvertBlock(position: position, block: block, deltaBlock: deltaBlockOptional));
+                self.queue.addOperation(CBTConvertBlock(position: position, frameNumber: self.frameNumber, block: block, deltaBlock: deltaBlockOptional));
             }
         }
         self.queue.waitUntilAllOperationsAreFinished();

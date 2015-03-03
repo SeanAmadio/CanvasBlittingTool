@@ -10,13 +10,18 @@ import AppKit
 
 class CBTConvertBlock: CBTConversionOperation
 {
-    var position:BlockPoint;
+    var destinationPosition:BlockPoint;
+    var frameNumber:Int;
     var block:NSImage;
     var deltaBlock:NSImage?;
     
-    init(position: BlockPoint, block:NSImage, deltaBlock:NSImage?)
+    static var imageCoordinator:CBTImageCoordinator?;
+    static var JSONCoordinator:CBTJSONCoordinator?;
+    
+    init(position: BlockPoint, frameNumber: Int, block:NSImage, deltaBlock:NSImage?)
     {
-        self.position = position;
+        self.destinationPosition = position;
+        self.frameNumber = frameNumber
         self.block = block;
         self.deltaBlock = deltaBlock;
     }
@@ -29,11 +34,27 @@ class CBTConvertBlock: CBTConversionOperation
             if (!deltaBlockData.isBlack())
             {
                 //Send a write operation to the imageCoordinator
+                let sem = dispatch_semaphore_create(0);
+                CBTConvertBlock.imageCoordinator!.addBlock(block, callbackClosure: { (sourcePosition:BlockPoint) -> Void in
+                    CBTConvertBlock.JSONCoordinator!.addBlockData([sourcePosition.x, sourcePosition.y, self.destinationPosition.x, self.destinationPosition.y], frame: self.frameNumber, callbackClosure: { () -> Void in
+                        //Dispatch semaphore
+                        dispatch_semaphore_signal(sem);
+                    })
+                })
+                dispatch_semaphore_wait(sem, DISPATCH_TIME_FOREVER);
             }
         }
         else
         {
             //Send a write operation to the imageCoordinator
+            let sem = dispatch_semaphore_create(0);
+            CBTConvertBlock.imageCoordinator!.addBlock(block, callbackClosure: { (sourcePosition:BlockPoint) -> Void in
+                CBTConvertBlock.JSONCoordinator!.addBlockData([sourcePosition.x, sourcePosition.y, self.destinationPosition.x, self.destinationPosition.y], frame: self.frameNumber, callbackClosure: { () -> Void in
+                    //Dispatch semaphore
+                    dispatch_semaphore_signal(sem);
+                })
+            })
+            dispatch_semaphore_wait(sem, DISPATCH_TIME_FOREVER);
         }
     }
 }

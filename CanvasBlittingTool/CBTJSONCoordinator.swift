@@ -18,10 +18,10 @@ class CBTJSONCoordinator: CBTCoordinator
         super.init();
     }
     
-    func addFrameData(frameData: [[Int]], toIndex: Int, callbackClosure: () -> Void)
+    func addBlockData(data: [Int], frame: Int, callbackClosure: () -> Void)
     {
         var operation = NSBlockOperation { () -> Void in
-            self.data[toIndex] = frameData;
+            self.data[frame].append(data);
             callbackClosure();
         };
         self.modifyQueue.addOperation(operation);

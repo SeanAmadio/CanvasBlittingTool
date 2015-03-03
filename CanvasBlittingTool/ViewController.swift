@@ -54,7 +54,7 @@ class ViewController: NSViewController {
                 self.imageArray = [AnyObject](count: urls.count, repeatedValue: NSNull());
                 for (index, object) in enumerate(urls)
                 {
-                    var url = object as NSURL;
+                    var url = object as! NSURL;
                     imageLoadQueue.addOperation(NSBlockOperation(block: { () -> Void in
                         var image : NSImage! = NSImage(contentsOfFile: url.path!);
                         imageArrayLock.lock();
