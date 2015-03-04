@@ -30,7 +30,7 @@ class CBTConvertFrame: CBTConversionOperation
             //Composite the two frames to get the delta frame
             deltaFrameOptional = NSImage(size: frame.size);
             deltaFrameOptional!.lockFocus();
-            frame.drawAtPoint(CGPointZero, fromRect: CGRectZero, operation: NSCompositingOperation.CompositeCopy, fraction: 1.0);
+            frame.drawAtPoint(CGPointZero, fromRect: CGRectZero, operation: NSCompositingOperation.CompositeSourceOver, fraction: 1.0);
             lastFrame.drawAtPoint(CGPointZero, fromRect: CGRectZero, operation: NSCompositingOperation.CompositeDifference, fraction: 1.0);
             deltaFrameOptional!.unlockFocus();
             
@@ -53,7 +53,7 @@ class CBTConvertFrame: CBTConversionOperation
                 //Write the subimage block of the current frame
                 var block = NSImage(size: blockRect.size);
                 block.lockFocus();
-                frame.drawAtPoint(CGPointZero, fromRect: blockRect, operation: NSCompositingOperation.CompositeCopy, fraction: 1.0);
+                frame.drawAtPoint(CGPointZero, fromRect: blockRect, operation: NSCompositingOperation.CompositeSourceOver, fraction: 1.0);
                 block.unlockFocus();
                 var deltaBlockOptional:NSImage?;
                 
@@ -62,7 +62,7 @@ class CBTConvertFrame: CBTConversionOperation
                     //Write the delta block to an image
                     deltaBlockOptional = NSImage(size: blockRect.size);
                     deltaBlockOptional!.lockFocus();
-                    deltaFrame.drawAtPoint(CGPointZero, fromRect: blockRect, operation: NSCompositingOperation.CompositeCopy, fraction: 1.0);
+                    deltaFrame.drawAtPoint(CGPointZero, fromRect: blockRect, operation: NSCompositingOperation.CompositeSourceOver, fraction: 1.0);
                     deltaBlockOptional!.unlockFocus();
                 }
                 
