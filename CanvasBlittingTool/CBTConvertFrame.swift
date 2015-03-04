@@ -45,10 +45,10 @@ class CBTConvertFrame: CBTConversionOperation
         var position = BlockPoint(x: 0, y: 0);
         for position.x = 0; position.x < Int(frame.size.width/8); position.x++
         {
-            for position.y = 0; position.y < Int(frame.size.height/8); position.y++
+            for position.y = Int(frame.size.height/8)-1; position.y >= 0; position.y--
             {
                 //Create the new cropping rectangle and get a subimage from the current frame
-                var blockRect = CGRectMake(position.point.x, position.point.y, CGFloat(8), CGFloat(8));
+                var blockRect = CGRectMake(position.pixelPoint.point.x, position.pixelPoint.point.y, CGFloat(8), CGFloat(8));
                 
                 //Write the subimage block of the current frame
                 var block = NSImage(size: blockRect.size);

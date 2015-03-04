@@ -25,14 +25,6 @@ class ViewController: NSViewController {
         super.viewDidLoad();
     }
     
-    override var representedObject: AnyObject?
-    {
-        didSet
-        {
-            // Update the view, if already loaded.
-        }
-    }
-    
     @IBAction func openFileAction(sender: NSButton)
     {
         //Pop the dialog

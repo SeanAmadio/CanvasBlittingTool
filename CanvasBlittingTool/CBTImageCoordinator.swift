@@ -12,10 +12,11 @@ class CBTImageCoordinator: CBTCoordinator
 {
     var image:NSImage;
     var width:Float = 1024.0;
-    var position = BlockPoint(x: 0, y: 0);
+    var position:BlockPoint;
     
     override init()
     {
+        self.position = BlockPoint(x: 0, y: Int(self.width/8)-1);
         image = NSImage(size: CGSizeMake(CGFloat(self.width), CGFloat(self.width)));
         super.init();
     }
@@ -34,7 +35,7 @@ class CBTImageCoordinator: CBTCoordinator
             if (self.position.pixelPoint.x == Int(self.width))
             {
                 self.position.x = 0;
-                self.position.y++;
+                self.position.y--;
             }
         };
         self.modifyQueue.addOperation(operation);
