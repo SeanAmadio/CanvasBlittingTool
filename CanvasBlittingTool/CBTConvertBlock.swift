@@ -12,13 +12,13 @@ class CBTConvertBlock: CBTConversionOperation
 {
     var destinationPosition:BlockPoint;
     var frameNumber:Int;
-    var block:NSImage;
-    var deltaBlock:NSImage?;
+    var block:CIImage;
+    var deltaBlock:CIImage?;
     
     static var imageCoordinator:CBTImageCoordinator?;
     static var JSONCoordinator:CBTJSONCoordinator?;
     
-    init(position: BlockPoint, frameNumber: Int, block:NSImage, deltaBlock:NSImage?)
+    init(position: BlockPoint, frameNumber: Int, block:CIImage, deltaBlock:CIImage?)
     {
         self.destinationPosition = position;
         self.frameNumber = frameNumber
@@ -28,9 +28,9 @@ class CBTConvertBlock: CBTConversionOperation
     
     override func main()
     {
-        NSLog("---[Convert Block %i,%i in Frame %i Start]", self.destinationPosition.x, self.destinationPosition.y, self.frameNumber);
+        NSLog("---[Convert Block %i,%i in Frame %i Start (%f,%f,%f,%f)]", self.destinationPosition.x, self.destinationPosition.y, self.frameNumber, self.block.extent().origin.x);
         //If we have diffBlock data, do the comparison, otherwise assume the block is different and send the write
-        if let deltaBlockData = deltaBlock
+        /*if let deltaBlockData = deltaBlock
         {
             if (!deltaBlockData.isBlack())
             {
@@ -44,10 +44,10 @@ class CBTConvertBlock: CBTConversionOperation
                     })
                 })
                 dispatch_semaphore_wait(sem, DISPATCH_TIME_FOREVER);
-            }
+            //}
         }
         else
-        {
+        {*/
             //Send a write operation to the imageCoordinator
             let sem = dispatch_semaphore_create(0);
             CBTConvertBlock.imageCoordinator!.addBlock(block, callbackClosure: { (sourcePosition:BlockPoint) -> Void in
@@ -55,10 +55,11 @@ class CBTConvertBlock: CBTConversionOperation
                     //Dispatch semaphore
                     //NSLog("----Block is in frame 0 and was written");
                     dispatch_semaphore_signal(sem);
+                    self.block.writeToPNG(String(format: "Frame%iBlock%i-%i.png", self.frameNumber, self.destinationPosition.x, self.destinationPosition.y));
                 })
             })
             dispatch_semaphore_wait(sem, DISPATCH_TIME_FOREVER);
-        }
+        //}
         NSLog("---[Convert Block %i,%i in Frame %i End]", self.destinationPosition.x, self.destinationPosition.y, self.frameNumber);
     }
 }

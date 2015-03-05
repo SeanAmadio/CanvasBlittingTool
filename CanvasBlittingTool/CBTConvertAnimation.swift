@@ -33,11 +33,11 @@ class CBTConvertAnimation: CBTConversionOperation
             //For the first image we add a frame comparison with null to the queue so that we will get the initial state
             if (index == 0)
             {
-                self.queue.addOperation(CBTConvertFrame(frame: frames[index],lastFrame: nil, frameNumber: index));
+                self.queue.addOperation(CBTConvertFrame(frame: frames[index].unscaledCIImage(),lastFrame: nil, frameNumber: index));
             }
             else
             {
-                self.queue.addOperation(CBTConvertFrame(frame: frames[index],lastFrame: frames[index-1], frameNumber: index));
+                self.queue.addOperation(CBTConvertFrame(frame: frames[index].unscaledCIImage(),lastFrame: frames[index-1].unscaledCIImage(), frameNumber: index));
             }
         }
         self.queue.waitUntilAllOperationsAreFinished();
