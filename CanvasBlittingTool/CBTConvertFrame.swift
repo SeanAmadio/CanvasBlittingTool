@@ -9,11 +9,11 @@ import AppKit
 
 class CBTConvertFrame: CBTConversionOperation
 {
-    var frame:NSImage;
-    var lastFrameOptional:NSImage?;
+    var frame:CIImage;
+    var lastFrameOptional:CIImage?;
     var frameNumber:Int;
     
-    init(frame:NSImage, lastFrame:NSImage?, frameNumber:Int)
+    init(frame:CIImage, lastFrame:CIImage?, frameNumber:Int)
     {
         self.frame = frame;
         self.lastFrameOptional = lastFrame;
@@ -23,47 +23,37 @@ class CBTConvertFrame: CBTConversionOperation
     override func main()
     {
         NSLog("--[Convert Frame %i Start]", self.frameNumber);
-        var deltaFrameOptional:NSImage?;
+        var deltaFrameOptional:CIImage?;
         
         if let lastFrame = lastFrameOptional
         {
             //Composite the two frames to get the delta frame
-            deltaFrameOptional = NSImage(size: frame.size);
-            deltaFrameOptional!.lockFocus();
-            frame.drawAtPoint(CGPointZero, fromRect: CGRectZero, operation: NSCompositingOperation.CompositeSourceOver, fraction: 1.0);
-            lastFrame.drawAtPoint(CGPointZero, fromRect: CGRectZero, operation: NSCompositingOperation.CompositeDifference, fraction: 1.0);
-            deltaFrameOptional!.unlockFocus();
+            let filter = CIFilter(name: "CIDifferenceBlendMode");
+            filter.setValue(frame, forKey: kCIInputImageKey);
+            filter.setValue(lastFrame, forKey: kCIInputBackgroundImageKey);
+            
+            deltaFrameOptional = filter.outputImage;
             
             //If the whole image is black, no writes need to be done for this frame
-            if (deltaFrameOptional!.isBlack())
-            {
-                return;
-            }
+            //TEST CIIMAGE IS BLACK AND RETURN IF TRUE
         }
         
         //Loop through all of the blocks in the image
         var position = BlockPoint(x: 0, y: 0);
-        for position.x = 0; position.x < Int(frame.size.width/8); position.x++
+        for position.y = Int(frame.extent().size.height/8)-1; position.y >= 0; position.y--
         {
-            for position.y = Int(frame.size.height/8)-1; position.y >= 0; position.y--
+            for position.x = 0; position.x < Int(frame.extent().size.width/8); position.x++
             {
                 //Create the new cropping rectangle and get a subimage from the current frame
                 var blockRect = CGRectMake(position.pixelPoint.point.x, position.pixelPoint.point.y, CGFloat(8), CGFloat(8));
                 
-                //Write the subimage block of the current frame
-                var block = NSImage(size: blockRect.size);
-                block.lockFocus();
-                frame.drawAtPoint(CGPointZero, fromRect: blockRect, operation: NSCompositingOperation.CompositeSourceOver, fraction: 1.0);
-                block.unlockFocus();
-                var deltaBlockOptional:NSImage?;
+                var block = frame.imageByCroppingToRectWithTranslate(blockRect);
+                var deltaBlockOptional:CIImage?;
                 
                 if let deltaFrame = deltaFrameOptional
                 {
                     //Write the delta block to an image
-                    deltaBlockOptional = NSImage(size: blockRect.size);
-                    deltaBlockOptional!.lockFocus();
-                    deltaFrame.drawAtPoint(CGPointZero, fromRect: blockRect, operation: NSCompositingOperation.CompositeSourceOver, fraction: 1.0);
-                    deltaBlockOptional!.unlockFocus();
+                    deltaBlockOptional = deltaFrame.imageByCroppingToRectWithTranslate(blockRect);
                 }
                 
                 //Send the block comparison operation
