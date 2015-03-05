@@ -28,7 +28,7 @@ class CBTConvertBlock: CBTConversionOperation
     
     override func main()
     {
-        NSLog("---[Convert Block %i,%i in Frame %i Start (%f,%f,%f,%f)]", self.destinationPosition.x, self.destinationPosition.y, self.frameNumber, self.block.extent().origin.x);
+        NSLog("---[Convert Block %i,%i in Frame %i Start]", self.destinationPosition.x, self.destinationPosition.y, self.frameNumber);
         //If we have diffBlock data, do the comparison, otherwise assume the block is different and send the write
         /*if let deltaBlockData = deltaBlock
         {
@@ -49,17 +49,21 @@ class CBTConvertBlock: CBTConversionOperation
         else
         {*/
             //Send a write operation to the imageCoordinator
-            let sem = dispatch_semaphore_create(0);
-            CBTConvertBlock.imageCoordinator!.addBlock(block, callbackClosure: { (sourcePosition:BlockPoint) -> Void in
-                CBTConvertBlock.JSONCoordinator!.addBlockData([sourcePosition.x, sourcePosition.y, self.destinationPosition.x, self.destinationPosition.y], frame: self.frameNumber, callbackClosure: { () -> Void in
-                    //Dispatch semaphore
-                    //NSLog("----Block is in frame 0 and was written");
-                    dispatch_semaphore_signal(sem);
-                    self.block.writeToPNG(String(format: "Frame%iBlock%i-%i.png", self.frameNumber, self.destinationPosition.x, self.destinationPosition.y));
-                })
-            })
-            dispatch_semaphore_wait(sem, DISPATCH_TIME_FOREVER);
+            sendWrite();
         //}
         NSLog("---[Convert Block %i,%i in Frame %i End]", self.destinationPosition.x, self.destinationPosition.y, self.frameNumber);
+    }
+    
+    func sendWrite()
+    {
+        let sem = dispatch_semaphore_create(0);
+        CBTConvertBlock.imageCoordinator!.addBlock(block, callbackClosure: { (sourcePosition:BlockPoint) -> Void in
+            CBTConvertBlock.JSONCoordinator!.addBlockData([sourcePosition.x, sourcePosition.y, self.destinationPosition.x, self.destinationPosition.y], frame: self.frameNumber, callbackClosure: { () -> Void in
+                //Dispatch semaphore
+                //NSLog("----Block is in frame 0 and was written");
+                dispatch_semaphore_signal(sem);
+            })
+        })
+        dispatch_semaphore_wait(sem, DISPATCH_TIME_FOREVER);
     }
 }
