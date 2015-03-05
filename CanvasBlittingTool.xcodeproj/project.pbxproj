@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1430295C1AA807DD00869663 /* CIImage+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1430295B1AA807DD00869663 /* CIImage+Operations.swift */; };
 		14CE2B431AA62FDA005CB475 /* Points.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CE2B421AA62FDA005CB475 /* Points.swift */; };
 		14D672D71A8D4B0000930340 /* NSImage+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D672D61A8D4B0000930340 /* NSImage+Operations.swift */; };
 		DD76FD6A1A369A4A007C6FA7 /* CBTConversionOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD76FD691A369A4A007C6FA7 /* CBTConversionOperation.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1430295B1AA807DD00869663 /* CIImage+Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CIImage+Operations.swift"; sourceTree = "<group>"; };
 		14CE2B421AA62FDA005CB475 /* Points.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Points.swift; sourceTree = "<group>"; };
 		14D672D61A8D4B0000930340 /* NSImage+Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSImage+Operations.swift"; sourceTree = "<group>"; };
 		DD76FD691A369A4A007C6FA7 /* CBTConversionOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBTConversionOperation.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 			children = (
 				14D672D61A8D4B0000930340 /* NSImage+Operations.swift */,
 				14CE2B421AA62FDA005CB475 /* Points.swift */,
+				1430295B1AA807DD00869663 /* CIImage+Operations.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				DD76FD781A36A699007C6FA7 /* CBTImageCoordinator.swift in Sources */,
 				DD76FD741A36A5FA007C6FA7 /* CBTConvertBlock.swift in Sources */,
 				DD76FD7C1A36A6CF007C6FA7 /* CBTJSONFrameCoordinator.swift in Sources */,
+				1430295C1AA807DD00869663 /* CIImage+Operations.swift in Sources */,
 				DD76FD761A36A622007C6FA7 /* CBTConvertAnimation.swift in Sources */,
 				DD76FD721A36A5E2007C6FA7 /* CBTConvertFrame.swift in Sources */,
 			);

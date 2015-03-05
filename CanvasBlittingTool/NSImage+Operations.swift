@@ -11,22 +11,6 @@ import AppKit
 
 extension NSImage
 {
-    func isBlack()->Bool
-    {
-        var data = NSBitmapImageRep(data: self.TIFFRepresentation!);
-        for var i = 0; i < Int(self.size.width); ++i
-        {
-            for var j = 0; j < Int(self.size.height); ++j
-            {
-                if (data?.colorAtX(i, y: j) != NSColor.blackColor())
-                {
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
-    
     func unscaledBitmapRep() -> NSBitmapImageRep
     {
         var rep = NSBitmapImageRep(bitmapDataPlanes: nil, pixelsWide: Int(self.size.width), pixelsHigh: Int(self.size.height), bitsPerSample: 8, samplesPerPixel: 4, hasAlpha: true, isPlanar: false, colorSpaceName: NSDeviceRGBColorSpace, bytesPerRow: 0, bitsPerPixel: 0);
@@ -51,5 +35,11 @@ extension NSImage
         self.unlockFocus();
         var data = bitmapRep.representationUsingType(NSBitmapImageFileType.NSPNGFileType, properties: Dictionary<NSObject, AnyObject>());
         return data!.writeToFile(databasePath, atomically: false);
+    }
+    
+    func unscaledCIImage() -> CIImage
+    {
+        var bitmapRep = self.unscaledBitmapRep();
+        return CIImage(bitmapImageRep: bitmapRep)!;
     }
 }
