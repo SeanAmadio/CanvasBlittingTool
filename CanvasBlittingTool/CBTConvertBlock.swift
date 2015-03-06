@@ -30,28 +30,22 @@ class CBTConvertBlock: CBTConversionOperation
     {
         NSLog("---[Convert Block %i,%i in Frame %i Start]", self.destinationPosition.x, self.destinationPosition.y, self.frameNumber);
         //If we have diffBlock data, do the comparison, otherwise assume the block is different and send the write
-        /*if let deltaBlockData = deltaBlock
+        if let deltaBlockData = deltaBlock
         {
-            if (!deltaBlockData.isBlack())
+            if (deltaBlockData.needsWrite(0.0))
             {
-                //Send a write operation to the imageCoordinator
-                let sem = dispatch_semaphore_create(0);
-                CBTConvertBlock.imageCoordinator!.addBlock(block, callbackClosure: { (sourcePosition:BlockPoint) -> Void in
-                    CBTConvertBlock.JSONCoordinator!.addBlockData([sourcePosition.x, sourcePosition.y, self.destinationPosition.x, self.destinationPosition.y], frame: self.frameNumber, callbackClosure: { () -> Void in
-                        //Dispatch semaphore
-                        //NSLog("----Block has changes and was written");
-                        dispatch_semaphore_signal(sem);
-                    })
-                })
-                dispatch_semaphore_wait(sem, DISPATCH_TIME_FOREVER);
-            //}
+                sendWrite();
+            }
+            else
+            {
+                NSLog("---[Convert Block %i,%i in Frame %i Skipped: Static Block]", self.destinationPosition.x, self.destinationPosition.y, self.frameNumber);
+            }
         }
         else
-        {*/
+        {
             //Send a write operation to the imageCoordinator
             sendWrite();
-        //}
-        NSLog("---[Convert Block %i,%i in Frame %i End]", self.destinationPosition.x, self.destinationPosition.y, self.frameNumber);
+        }
     }
     
     func sendWrite()
@@ -65,5 +59,6 @@ class CBTConvertBlock: CBTConversionOperation
             })
         })
         dispatch_semaphore_wait(sem, DISPATCH_TIME_FOREVER);
+        NSLog("---[Convert Block %i,%i in Frame %i End]", self.destinationPosition.x, self.destinationPosition.y, self.frameNumber);
     }
 }

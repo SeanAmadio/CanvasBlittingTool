@@ -34,8 +34,12 @@ class CBTConvertFrame: CBTConversionOperation
             
             deltaFrameOptional = filter.outputImage;
             
-            //If the whole image is black, no writes need to be done for this frame
-            //TEST CIIMAGE IS BLACK AND RETURN IF TRUE
+            //Test if anything on this frame needs a write
+            if (!deltaFrameOptional!.needsWrite(0.0))
+            {
+                NSLog("--[Convert Frame %i Skipped: Static Frame]", self.frameNumber);
+                return;
+            }
         }
         
         //Loop through all of the blocks in the image

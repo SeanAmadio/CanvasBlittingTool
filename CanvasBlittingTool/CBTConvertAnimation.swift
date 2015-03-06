@@ -43,7 +43,6 @@ class CBTConvertAnimation: CBTConversionOperation
         self.queue.waitUntilAllOperationsAreFinished();
         
         self.imageCoordinator.image.writeToPNG("output.png");
-        NSLog("%@", self.JSONCoordinator.data);
         NSLog("-[Convert Animation End]");
     }
 }
