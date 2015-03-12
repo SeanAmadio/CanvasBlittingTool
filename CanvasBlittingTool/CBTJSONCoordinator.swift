@@ -14,7 +14,7 @@ class CBTJSONCoordinator: CBTCoordinator
     
     init (frames: Int)
     {
-        data = [[[Int]]](count: frames, repeatedValue: [[]]);
+        data = [[[Int]]](count: frames, repeatedValue: []);
         super.init();
     }
     
