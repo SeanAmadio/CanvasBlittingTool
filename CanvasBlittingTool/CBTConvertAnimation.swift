@@ -57,6 +57,7 @@ class CBTConvertAnimation: CBTConversionOperation
         self.queue.waitUntilAllOperationsAreFinished();
         
         //CBTConvertAnimation.imageCoordinator.image.writeToPNG("output.png");
+        NSLog("Written Cells: %i",CBTConvertAnimation.imageCoordinator!.cells.count);
         NSLog("-[Convert Animation End]");
     }
 }

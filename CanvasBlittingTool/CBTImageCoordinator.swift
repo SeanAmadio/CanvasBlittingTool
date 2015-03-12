@@ -42,8 +42,18 @@ class CBTImageCoordinator: CBTCoordinator
                 self.position.x = 0;
                 self.position.y--;
             }*/
-            self.cells[cell] = self.index;
-            self.index++;
+            //If we already have the cell in our list just use that position
+            if ((self.cells.indexForKey(cell)) != nil)
+            {
+                callbackClosure(self.cells[cell]!);
+            }
+            else
+            {
+                //Add a new entry with the index, callback and increments
+                self.cells[cell] = self.index;
+                callbackClosure(self.index);
+                self.index++;
+            }
         };
         self.modifyQueue.addOperation(operation);
     }
