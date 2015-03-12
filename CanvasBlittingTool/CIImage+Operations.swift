@@ -62,9 +62,9 @@ extension CIImage
     {
         let bytesPerPixel = 4;
         let pixels = Int(self.extent().width*self.extent().height);
-        var rawData:[CUnsignedChar] = Array<CUnsignedChar>(count: pixels, repeatedValue: CUnsignedChar(0));
+        var rawData:[CUnsignedChar] = Array<CUnsignedChar>(count: pixels*bytesPerPixel, repeatedValue: CUnsignedChar(0));
         let context:CIContext? = NSGraphicsContext(bitmapImageRep: NSBitmapImageRep(CIImage: self))!.CIContext;
-        context!.render(self, toBitmap: &rawData, rowBytes: 4, bounds: self.extent(), format: kCIFormatARGB8, colorSpace: CGColorSpaceCreateWithName(kCGColorSpaceGenericRGBLinear));
+        context!.render(self, toBitmap: &rawData, rowBytes: bytesPerPixel*Int(self.extent().width), bounds: self.extent(), format: kCIFormatARGB8, colorSpace: CGColorSpaceCreateWithName(kCGColorSpaceGenericRGBLinear));
         
         return rawData;
     }
