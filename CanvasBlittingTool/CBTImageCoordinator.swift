@@ -57,4 +57,30 @@ class CBTImageCoordinator: CBTCoordinator
         };
         self.modifyQueue.addOperation(operation);
     }
+    
+    func writeImage()
+    {
+        let width = Int(ceil(sqrt(Float(self.cells.count))));
+        let height = Int(ceil(Float(self.cells.count)/Float(width)));
+        
+        for (cell, index) in cells
+        {
+            let position = BlockPoint(x: index%width, y: index/height, size: 8);
+            
+            let transform = NSAffineTransform();
+            transform.translateXBy(position.pixelPoint.point.x, yBy: position.pixelPoint.point.y);
+            NSLog("----[Wrote to %f,%f]", position.pixelPoint.point.x, position.pixelPoint.point.y);
+            
+            let shiftFilter = CIFilter(name: "CIAffineTransform");
+            shiftFilter.setValue(cell.image, forKey: kCIInputImageKey);
+            shiftFilter.setValue(transform, forKey: kCIInputTransformKey);
+            
+            let compositeFilter = CIFilter(name: "CISourceOverCompositing");
+            compositeFilter.setValue(shiftFilter.outputImage, forKey: kCIInputImageKey);
+            compositeFilter.setValue(self.image, forKey: kCIInputBackgroundImageKey);
+            self.image = compositeFilter.outputImage;
+        }
+        
+        self.image!.writeToPNG("output.png");
+    }
 }
