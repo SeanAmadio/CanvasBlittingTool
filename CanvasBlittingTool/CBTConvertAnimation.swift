@@ -57,6 +57,7 @@ class CBTConvertAnimation: CBTConversionOperation
         self.queue.waitUntilAllOperationsAreFinished();
         
         CBTConvertAnimation.imageCoordinator!.writeImage();
+        CBTConvertAnimation.JSONCoordinator!.writeManifest(1, pretty: true);
         NSLog("Written Cells: %i",CBTConvertAnimation.imageCoordinator!.cells.count);
         NSLog("Written Manifest: %i",CBTConvertAnimation.JSONCoordinator!.data);
         NSLog("-[Convert Animation End]");
