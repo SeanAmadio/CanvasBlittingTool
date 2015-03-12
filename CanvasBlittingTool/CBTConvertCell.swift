@@ -1,0 +1,61 @@
+//
+//  CBTConvertBlock.swift
+//  CanvasBlittingTool
+//
+//  Created by Sean Amadio on 2014-12-08.
+//  Copyright (c) 2014 Two Amadios. All rights reserved.
+//
+
+import AppKit
+
+class CBTConvertCell: CBTConversionOperation
+{
+    var destinationIndex:Int;
+    var frameNumber:Int;
+    var cell:HashedCell;
+    var lastCellOptional:HashedCell?;
+    
+    init(destinationIndex: Int, frameNumber: Int, cell:HashedCell, lastCell:HashedCell?)
+    {
+        self.destinationIndex = destinationIndex;
+        self.frameNumber = frameNumber
+        self.cell = cell;
+        self.lastCellOptional = lastCell;
+    }
+    
+    override func main()
+    {
+        NSLog("---[Convert Block %i in Frame %i Start]", self.destinationIndex, self.frameNumber);
+        //If we have diffBlock data, do the comparison, otherwise assume the block is different and send the write
+        if let lastCell = self.lastCellOptional
+        {
+            if (cell != lastCell)
+            {
+                sendWrite();
+            }
+            else
+            {
+                NSLog("---[Convert Block %i in Frame %i Skipped: Static Block]", self.destinationIndex, self.frameNumber);
+            }
+        }
+        else
+        {
+            //Send a write operation to the imageCoordinator if we don't have a previous block
+            sendWrite();
+        }
+    }
+    
+    func sendWrite()
+    {
+        let sem = dispatch_semaphore_create(0);
+        CBTConvertAnimation.imageCoordinator!.addCell(cell, callbackClosure: { (sourceIndex:Int) -> Void in
+            CBTConvertAnimation.JSONCoordinator!.addCellData(sourceIndex, destinationIndex: self.destinationIndex, frame: self.frameNumber, callbackClosure: { () -> Void in
+                //Dispatch semaphore
+                //NSLog("----Block is in frame 0 and was written");
+                dispatch_semaphore_signal(sem);
+            })
+        })
+        dispatch_semaphore_wait(sem, DISPATCH_TIME_FOREVER);
+        NSLog("---[Convert Block %i in Frame %i End]", self.destinationIndex, self.frameNumber);
+    }
+}
