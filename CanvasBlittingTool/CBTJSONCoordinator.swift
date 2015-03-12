@@ -10,14 +10,15 @@ import Cocoa
 
 class CBTJSONCoordinator: CBTCoordinator
 {
-    var data:[[[Int]]] = [[[]]];
+    var data:[[[Int]]];
     
     init (frames: Int)
     {
-        data = [[[Int]]](count: frames, repeatedValue: [[]]);
+        data = [[[Int]]](count: frames, repeatedValue: []);
         super.init();
     }
     
+    //Adds one cell write to our manifest data
     func addCellData(sourceIndex:Int, destinationIndex:Int, frame: Int, callbackClosure: () -> Void)
     {
         var operation = NSBlockOperation { () -> Void in

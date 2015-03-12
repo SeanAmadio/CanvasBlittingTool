@@ -22,17 +22,18 @@ class CBTConvertFrame: CBTConversionOperation
     
     override func main()
     {
-        NSLog("--[Convert Frame %i Start]", self.frameNumber);
+        //NSLog("--[Convert Frame %i Start]", self.frameNumber);
         
         //If we have a last frame
         if let lastFrame = lastFrameOptional
         {
             if (frame == lastFrame)
             {
-                NSLog("--[Convert Frame %i Skipped: Static Frame]", self.frameNumber);
+                //NSLog("--[Convert Frame %i Skipped: Static Frame]", self.frameNumber);
                 return;
             }
             
+            //Add operations to compare and write each cell
             for (index, cell) in enumerate(frame.cells)
             {
                 let lastCell = lastFrame.cells[index];
@@ -41,6 +42,7 @@ class CBTConvertFrame: CBTConversionOperation
         }
         else
         {
+            //Add operations to write each cell
             for (index, cell) in enumerate(frame.cells)
             {
                 self.queue.addOperation(CBTConvertCell(destinationIndex: index, frameNumber: self.frameNumber, cell: cell, lastCell: nil));
