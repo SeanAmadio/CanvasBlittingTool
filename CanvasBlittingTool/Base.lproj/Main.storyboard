@@ -179,13 +179,6 @@
                                                 </menu>
                                             </popUpButtonCell>
                                         </popUpButton>
-                                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3RU-9B-eTl">
-                                            <rect key="frame" x="16" y="12" width="142" height="31"/>
-                                            <buttonCell key="cell" type="check" title="Loop" bezelStyle="regularSquare" imagePosition="left" inset="2" id="LlC-n9-6cM">
-                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                        </button>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G6k-Fa-im2">
                                             <rect key="frame" x="16" y="105" width="77" height="17"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Block Size" id="Qfu-G8-j49">
@@ -194,13 +187,6 @@
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bTa-1f-9Qn">
-                                            <rect key="frame" x="16" y="40" width="170" height="18"/>
-                                            <buttonCell key="cell" type="check" title="Use hash comparison" bezelStyle="regularSquare" imagePosition="left" inset="2" id="vc2-sr-mNd">
-                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                        </button>
                                         <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uqT-h4-Kcs">
                                             <rect key="frame" x="104" y="69" width="100" height="26"/>
                                             <popUpButtonCell key="cell" type="push" title="60 fps" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="60" imageScaling="proportionallyDown" inset="2" selectedItem="KfP-fF-fc2" id="vHD-H1-fBQ">
@@ -269,7 +255,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="startConversion:" target="XfG-lQ-9wD" id="McA-Pw-c0M"/>
+                                    <segue destination="hCv-iD-ztv" kind="show" id="m75-3L-iOt"/>
                                 </connections>
                             </button>
                             <tabView initialItem="oB8-Re-bfi" translatesAutoresizingMaskIntoConstraints="NO" id="MNU-an-XBJ">
@@ -354,8 +340,6 @@
                         <outlet property="animationView" destination="jcP-Hu-WF3" id="WIW-cF-LQm"/>
                         <outlet property="blockSizePopup" destination="Ovh-ia-Fs2" id="tgu-eM-6FL"/>
                         <outlet property="frameratePopup" destination="uqT-h4-Kcs" id="s4f-Xo-TA6"/>
-                        <outlet property="hashComparisonCheck" destination="bTa-1f-9Qn" id="xug-lW-MEE"/>
-                        <outlet property="loopCheck" destination="3RU-9B-eTl" id="kYk-CY-Q8a"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -393,7 +377,120 @@
                     </menu>
                 </popUpButtonCell>
             </objects>
-            <point key="canvasLocation" x="75" y="715.5"/>
+            <point key="canvasLocation" x="75" y="715"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="LHy-ug-Ciw">
+            <objects>
+                <windowController id="hCv-iD-ztv" sceneMemberID="viewController">
+                    <window key="window" title="Output Settings" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="1KT-H7-RVD">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
+                        <rect key="contentRect" x="245" y="301" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                    </window>
+                    <connections>
+                        <segue destination="0BU-xP-73q" kind="relationship" relationship="window.shadowedContentViewController" id="rzg-j3-T0a"/>
+                    </connections>
+                </windowController>
+                <customObject id="Zno-7B-LjM" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="675" y="250"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="CyT-tJ-3OZ">
+            <objects>
+                <viewController id="0BU-xP-73q" sceneMemberID="viewController">
+                    <view key="view" id="Cvs-GT-g2Y">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="203"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <box autoresizesSubviews="NO" fixedFrame="YES" title="Output Folder" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="Kef-mM-LPE">
+                                <rect key="frame" x="17" y="57" width="446" height="61"/>
+                                <view key="contentView">
+                                    <rect key="frame" x="1" y="1" width="444" height="45"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="feo-g4-m8q">
+                                            <rect key="frame" x="12" y="7" width="148" height="32"/>
+                                            <buttonCell key="cell" type="push" title="Choose Location..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="tOm-BJ-5IH">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                        </button>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TgC-52-fuJ">
+                                            <rect key="frame" x="160" y="16" width="268" height="17"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Path/test/sest/set/" id="5oT-yV-PIU">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                    </subviews>
+                                </view>
+                                <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                                <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </box>
+                            <box autoresizesSubviews="NO" fixedFrame="YES" title="Manifest" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="Aid-wW-US2">
+                                <rect key="frame" x="17" y="122" width="446" height="61"/>
+                                <view key="contentView">
+                                    <rect key="frame" x="1" y="1" width="444" height="45"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ML7-cU-ive">
+                                            <rect key="frame" x="16" y="15" width="141" height="18"/>
+                                            <buttonCell key="cell" type="check" title="Pretty JSON" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="SnU-v9-B3t">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                        </button>
+                                        <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Ab-xg-kKI">
+                                            <rect key="frame" x="304" y="11" width="125" height="26"/>
+                                            <popUpButtonCell key="cell" type="push" title="Version 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="1" imageScaling="proportionallyDown" inset="2" id="nIm-JY-AkA">
+                                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="menu"/>
+                                                <menu key="menu" id="KO2-oY-lz6">
+                                                    <items>
+                                                        <menuItem title="Version 1" state="on" tag="1" id="4gn-ck-AeL"/>
+                                                        <menuItem title="Version 2" tag="2" id="mxk-M4-SCG"/>
+                                                        <menuItem title="Version 3" tag="3" id="aes-Ri-yzk"/>
+                                                    </items>
+                                                </menu>
+                                            </popUpButtonCell>
+                                        </popUpButton>
+                                    </subviews>
+                                </view>
+                                <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                                <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </box>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rqk-qY-EHO">
+                                <rect key="frame" x="322" y="13" width="144" height="32"/>
+                                <buttonCell key="cell" type="push" title="Start Conversion" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9gX-gd-lFz">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mhf-Yc-9eZ">
+                                <rect key="frame" x="64" y="19" width="256" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="output" drawsBackground="YES" id="tAp-ac-770">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KWG-dy-9Um">
+                                <rect key="frame" x="20" y="20" width="38" height="21"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Title:" id="gE5-AI-AJt">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="9Ij-iZ-qQN" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="675" y="609.5"/>
         </scene>
     </scenes>
     <resources>
