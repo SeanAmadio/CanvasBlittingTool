@@ -43,8 +43,12 @@ class HashedFrame : Hashable, Printable
     {
         get
         {
-            //REPLACE WITH PROPER HASH
-            return cells.description.hashValue;
+            var hash:Int = 0;
+            for cell in cells
+            {
+                hash = 12347&*hash &+ cell.hashValue;
+            }
+            return hash;
         }
     }
     

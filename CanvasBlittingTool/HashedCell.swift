@@ -32,8 +32,12 @@ class HashedCell : Hashable, Printable
     {
         get
         {
-            //REPLACE WITH PROPER HASH
-            return data.description.hashValue;
+            var hash:Int = 0;            
+            for dataPoint in data
+            {
+                hash = 12347&*hash &+ Int(dataPoint);
+            }
+            return hash;
         }
     }
     
