@@ -57,4 +57,15 @@ extension CIImage
         transform.setValue(affineTransform, forKey:kCIInputTransformKey);
         return transform.outputImage;
     }
+    
+    func rawData() -> [CUnsignedChar]
+    {
+        let bytesPerPixel = 4;
+        let pixels = Int(self.extent().width*self.extent().height);
+        var rawData:[CUnsignedChar] = Array<CUnsignedChar>(count: pixels, repeatedValue: CUnsignedChar(0));
+        let context:CIContext? = NSGraphicsContext(bitmapImageRep: NSBitmapImageRep(CIImage: self))!.CIContext;
+        context!.render(self, toBitmap: &rawData, rowBytes: 4, bounds: self.extent(), format: kCIFormatARGB8, colorSpace: CGColorSpaceCreateWithName(kCGColorSpaceGenericRGBLinear));
+        
+        return rawData;
+    }
 }
