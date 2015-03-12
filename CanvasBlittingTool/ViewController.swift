@@ -68,7 +68,8 @@ class ViewController: NSViewController {
     {
         var conversionQueue = NSOperationQueue();
         if let images = self.imageArray as? [NSImage] {
-            conversionQueue.addOperation(CBTConvertAnimation(frames: images));
+            let inputSettings = Settings(width:32, height: 32, frameCount: 4, cellSize: 8);
+            conversionQueue.addOperation(CBTConvertAnimation(frames: images, settings: inputSettings));
         }
     }
 

@@ -11,38 +11,52 @@ import AppKit
 
 class CBTConvertAnimation: CBTConversionOperation
 {
+    
+    static var imageCoordinator:CBTImageCoordinator?;
+    static var JSONCoordinator:CBTJSONCoordinator?;
+    
     var frames:[NSImage];
+    var inputSettings:Settings;
+    
     var imageCoordinator = CBTImageCoordinator();
     var JSONCoordinator:CBTJSONCoordinator;
+
     
-    init(frames:[NSImage])
+    init(frames:[NSImage], settings:Settings)
     {
+        self.inputSettings = settings;
         self.frames = frames;
-        self.JSONCoordinator = CBTJSONCoordinator(frames: self.frames.count);
+        
+        self.JSONCoordinator = CBTJSONCoordinator(frames: settings.frameCount);
     }
     
     override func main()
     {
         NSLog("-[Convert Animation Start]");
         //Set the coordinators for the block content
-        CBTConvertBlock.imageCoordinator = self.imageCoordinator;
-        CBTConvertBlock.JSONCoordinator = self.JSONCoordinator;
+        CBTConvertAnimation.imageCoordinator = self.imageCoordinator;
+        CBTConvertAnimation.JSONCoordinator = self.JSONCoordinator;
         
-        for var index = 0; index < frames.count; ++index
+        var hashedFrames = Array<HashedFrame>();
+        
+        for var index = 0; index < inputSettings.frameCount; ++index
         {
+            hashedFrames.append(HashedFrame(frame: frames[index].unscaledCIImage(), settings: self.inputSettings));
             //For the first image we add a frame comparison with null to the queue so that we will get the initial state
             if (index == 0)
             {
-                self.queue.addOperation(CBTConvertFrame(frame: frames[index].unscaledCIImage(),lastFrame: nil, frameNumber: index));
+                self.queue.addOperation(CBTConvertFrame(frame: hashedFrames[index], lastFrame: nil, frameNumber: index));
             }
             else
             {
-                self.queue.addOperation(CBTConvertFrame(frame: frames[index].unscaledCIImage(),lastFrame: frames[index-1].unscaledCIImage(), frameNumber: index));
+                self.queue.addOperation(CBTConvertFrame(frame: hashedFrames[index], lastFrame: hashedFrames[index-1], frameNumber: index));
             }
         }
+        
+        
         self.queue.waitUntilAllOperationsAreFinished();
         
-        self.imageCoordinator.image.writeToPNG("output.png");
+        //CBTConvertAnimation.imageCoordinator.image.writeToPNG("output.png");
         NSLog("-[Convert Animation End]");
     }
 }
