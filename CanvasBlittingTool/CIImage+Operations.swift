@@ -47,8 +47,10 @@ extension CIImage
     //Returns a new cropped image at 0, 0
     func imageByCroppingToRectWithTranslate(rect: CGRect) -> CIImage
     {
+        //Crops the image but there is an origin offset
         var croppedImage = self.imageByCroppingToRect(rect);
         
+        //Set up a transform to put the image back at 0, 0
         let transform = CIFilter(name:"CIAffineTransform");
         let affineTransform = NSAffineTransform();
         
