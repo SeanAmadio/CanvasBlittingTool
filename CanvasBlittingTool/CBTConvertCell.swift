@@ -25,7 +25,6 @@ class CBTConvertCell: CBTConversionOperation
     
     override func main()
     {
-        NSLog("---[Convert Block %i in Frame %i Start]", self.destinationIndex, self.frameNumber);
         //If we have diffBlock data, do the comparison, otherwise assume the block is different and send the write
         if let lastCell = self.lastCellOptional
         {
@@ -35,7 +34,7 @@ class CBTConvertCell: CBTConversionOperation
             }
             else
             {
-                NSLog("---[Convert Block %i in Frame %i Skipped: Static Block]", self.destinationIndex, self.frameNumber);
+                NSLog("---[Cell %i in Frame %i Skipped: Static Block]", self.destinationIndex, self.frameNumber);
             }
         }
         else
@@ -50,12 +49,10 @@ class CBTConvertCell: CBTConversionOperation
         let sem = dispatch_semaphore_create(0);
         CBTConvertAnimation.imageCoordinator!.addCell(cell, callbackClosure: { (sourceIndex:Int) -> Void in
             CBTConvertAnimation.JSONCoordinator!.addCellData(sourceIndex, destinationIndex: self.destinationIndex, frame: self.frameNumber, callbackClosure: { () -> Void in
-                //Dispatch semaphore
-                //NSLog("----Block is in frame 0 and was written");
+                
                 dispatch_semaphore_signal(sem);
             })
         })
         dispatch_semaphore_wait(sem, DISPATCH_TIME_FOREVER);
-        NSLog("---[Convert Block %i in Frame %i End]", self.destinationIndex, self.frameNumber);
     }
 }

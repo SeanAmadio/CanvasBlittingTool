@@ -43,15 +43,17 @@ class CBTImageCoordinator: CBTCoordinator
                 self.position.y--;
             }*/
             //If we already have the cell in our list just use that position
-            if ((self.cells.indexForKey(cell)) != nil)
+            if (self.cells[cell] != nil)
             {
                 callbackClosure(self.cells[cell]!);
+                NSLog("---[Cell Exists at %i]" , self.cells[cell]!);
             }
             else
             {
                 //Add a new entry with the index, callback and increments
                 self.cells[cell] = self.index;
                 callbackClosure(self.index);
+                NSLog("---[Cell Written at %i]" , self.index);
                 self.index++;
             }
         };
@@ -63,13 +65,15 @@ class CBTImageCoordinator: CBTCoordinator
         let width = Int(ceil(sqrt(Float(self.cells.count))));
         let height = Int(ceil(Float(self.cells.count)/Float(width)));
         
+        self.image = NSImage(size: CGSizeMake(CGFloat(width*8), CGFloat(height*8))).unscaledCIImage();
+        
         for (cell, index) in cells
         {
-            let position = BlockPoint(x: index%width, y: index/height, size: 8);
+            let position = BlockPoint(x: index%width, y: height-(index/width), size: 8);
             
             let transform = NSAffineTransform();
             transform.translateXBy(position.pixelPoint.point.x, yBy: position.pixelPoint.point.y);
-            NSLog("----[Wrote to %f,%f]", position.pixelPoint.point.x, position.pixelPoint.point.y);
+            NSLog("----[Index %i Wrote to %f,%f]", index, position.pixelPoint.point.x, position.pixelPoint.point.y);
             
             let shiftFilter = CIFilter(name: "CIAffineTransform");
             shiftFilter.setValue(cell.image, forKey: kCIInputImageKey);
@@ -81,6 +85,6 @@ class CBTImageCoordinator: CBTCoordinator
             self.image = compositeFilter.outputImage;
         }
         
-        self.image!.writeToPNG("output.png");
+        self.image!.writeToPNG("output2.png");
     }
 }

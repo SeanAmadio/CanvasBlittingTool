@@ -56,8 +56,9 @@ class CBTConvertAnimation: CBTConversionOperation
         
         self.queue.waitUntilAllOperationsAreFinished();
         
-        //CBTConvertAnimation.imageCoordinator.image.writeToPNG("output.png");
+        CBTConvertAnimation.imageCoordinator!.writeImage();
         NSLog("Written Cells: %i",CBTConvertAnimation.imageCoordinator!.cells.count);
+        NSLog("Written Manifest: %i",CBTConvertAnimation.JSONCoordinator!.data);
         NSLog("-[Convert Animation End]");
     }
 }
