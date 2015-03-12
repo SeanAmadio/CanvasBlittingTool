@@ -9,11 +9,11 @@ import AppKit
 
 class CBTConvertFrame: CBTConversionOperation
 {
-    var frame:CIImage;
-    var lastFrameOptional:CIImage?;
+    var frame:HashedFrame;
+    var lastFrameOptional:HashedFrame?;
     var frameNumber:Int;
     
-    init(frame:CIImage, lastFrame:CIImage?, frameNumber:Int)
+    init(frame:HashedFrame, lastFrame:HashedFrame?, frameNumber:Int)
     {
         self.frame = frame;
         self.lastFrameOptional = lastFrame;
@@ -23,45 +23,27 @@ class CBTConvertFrame: CBTConversionOperation
     override func main()
     {
         NSLog("--[Convert Frame %i Start]", self.frameNumber);
-        var deltaFrameOptional:CIImage?;
         
+        //If we have a last frame
         if let lastFrame = lastFrameOptional
         {
-            //Composite the two frames to get the delta frame
-            let filter = CIFilter(name: "CIDifferenceBlendMode");
-            filter.setValue(frame, forKey: kCIInputImageKey);
-            filter.setValue(lastFrame, forKey: kCIInputBackgroundImageKey);
-            
-            deltaFrameOptional = filter.outputImage;
-            
-            //Test if anything on this frame needs a write
-            if (!deltaFrameOptional!.needsWrite(0.0))
+            if (frame == lastFrame)
             {
                 NSLog("--[Convert Frame %i Skipped: Static Frame]", self.frameNumber);
                 return;
             }
-        }
-        
-        //Loop through all of the blocks in the image
-        var position = BlockPoint(x: 0, y: 0);
-        for position.y = Int(frame.extent().size.height/8)-1; position.y >= 0; position.y--
-        {
-            for position.x = 0; position.x < Int(frame.extent().size.width/8); position.x++
+            
+            for (index, cell) in enumerate(frame.cells)
             {
-                //Create the new cropping rectangle and get a subimage from the current frame
-                var blockRect = CGRectMake(position.pixelPoint.point.x, position.pixelPoint.point.y, CGFloat(8), CGFloat(8));
-                
-                var block = frame.imageByCroppingToRectWithTranslate(blockRect);
-                var deltaBlockOptional:CIImage?;
-                
-                if let deltaFrame = deltaFrameOptional
-                {
-                    //Write the delta block to an image
-                    deltaBlockOptional = deltaFrame.imageByCroppingToRectWithTranslate(blockRect);
-                }
-                
-                //Send the block comparison operation
-                self.queue.addOperation(CBTConvertBlock(position: position, frameNumber: self.frameNumber, block: block, deltaBlock: deltaBlockOptional));
+                let lastCell = lastFrame.cells[index];
+                self.queue.addOperation(CBTConvertCell(destinationIndex: index, frameNumber: self.frameNumber, cell: cell, lastCell: lastCell));
+            }
+        }
+        else
+        {
+            for (index, cell) in enumerate(frame.cells)
+            {
+                self.queue.addOperation(CBTConvertCell(destinationIndex: index, frameNumber: self.frameNumber, cell: cell, lastCell: nil));
             }
         }
         self.queue.waitUntilAllOperationsAreFinished();
