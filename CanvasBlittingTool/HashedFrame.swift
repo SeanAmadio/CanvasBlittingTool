@@ -15,21 +15,41 @@ func ==(lhs: HashedFrame, rhs: HashedFrame) -> Bool
 }
 
 //Describing cell metadata
-struct CellData
+struct Settings
 {
-    var size:Int;
-    var rows:Int;
-    var columns:Int;
+    //Animation properties
+    var width:Int;
+    var height:Int;
+    var frameCount:Int;
+    
+    //Cell size
+    var cellSize:Int;
+    var cellRows:Int
+    {
+        get
+        {
+            return Int(ceil(Float(width)/Float(cellSize)));
+        }
+    }
+    
+    var cellColumns:Int
+    {
+        get
+        {
+            return Int(ceil(Float(height)/Float(cellSize)));
+        }
+    }
+    
     var cells:Int
     {
         get
         {
-            return rows*columns;
+            return cellRows*cellColumns;
         }
     }
     
     //Returns the numbers of bits needed to represent these dimensions
-    var writeBits:Int
+    var bits:Int
     {
         get
         {
@@ -41,28 +61,28 @@ struct CellData
 class HashedFrame : Hashable, Printable
 {
     //An array of pixel data
-    var cells:[[HashedCell]];
+    var cells:[HashedCell];
     
-    init(frame:CIImage, cellData: CellData)
+    init(frame:CIImage, settings: Settings)
     {
         //Fill with null data
-        self.cells = Array<Array<HashedCell>>();
+        self.cells = Array<HashedCell>();
         
         //Parse into the cells array
-        var position = BlockPoint(x: 0, y: 0);
-        for position.y = cellData.columns-1; position.y >= 0; position.y--
+        for (var cellIndex = 0; cellIndex < settings.cells; cellIndex++)
         {
-            for position.x = 0; position.x < cellData.rows; position.x++
-            {
-                //Create the new cropping rectangle and get a subimage from the current frame
-                var rect = CGRectMake(position.pixelPoint.point.x, position.pixelPoint.point.y, CGFloat(cellData.size), CGFloat(cellData.size));
-                
-                //Add the cell to the array
-                cells[position.x][position.y] = HashedCell(image: frame.imageByCroppingToRectWithTranslate(rect));
-            }
+            let position = BlockPoint(x: cellIndex%settings.cellColumns, y: cellIndex/settings.cellColumns, size: settings.cellSize);
+            //Create the new cropping rectangle and get a subimage from the current frame
+            var rect = CGRectMake(position.pixelPoint.point.x, position.pixelPoint.point.y, CGFloat(settings.cellSize), CGFloat(settings.cellSize));
+            
+            //Add the cell to the array
+            cells.append(HashedCell(image: frame.imageByCroppingToRectWithTranslate(rect)));
         }
     }
     
+    /*
+    *   === PROTOCOLS ===
+    */
     var hashValue : Int
     {
         get
