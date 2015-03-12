@@ -12,18 +12,6 @@ struct PixelPoint
 {
     var x = 0;
     var y = 0;
-    var blockPoint:BlockPoint
-    {
-        get
-        {
-            return BlockPoint(x: x/8, y: y/8);
-        }
-        set(point)
-        {
-            x = point.x*8;
-            y = point.y*8;
-        }
-    }
     
     var point:CGPoint
     {
@@ -43,16 +31,18 @@ struct BlockPoint
 {
     var x = 0;
     var y = 0;
+    var size = 8;
+    
     var pixelPoint:PixelPoint
     {
         get
         {
-            return PixelPoint(x: x*8, y: y*8);
+            return PixelPoint(x: x*size, y: y*size);
         }
         set(point)
         {
-            x = point.x / 8;
-            y = point.y / 8;
+            x = point.x / size;
+            y = point.y / size;
         }
     }
     
