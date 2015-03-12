@@ -39,13 +39,13 @@ class CBTConvertCell: CBTConversionOperation
         }
         else
         {
-            //Send a write operation to the imageCoordinator if we don't have a previous block
             sendWrite();
         }
     }
     
     func sendWrite()
     {
+        //Ask for an image write, when that is done ask for a manifest write, wait until all is done before this operation completes
         let sem = dispatch_semaphore_create(0);
         CBTConvertAnimation.imageCoordinator!.addCell(cell, callbackClosure: { (sourceIndex:Int) -> Void in
             CBTConvertAnimation.JSONCoordinator!.addCellData(sourceIndex, destinationIndex: self.destinationIndex, frame: self.frameNumber, callbackClosure: { () -> Void in

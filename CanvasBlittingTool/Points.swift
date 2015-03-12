@@ -8,6 +8,7 @@
 
 import Foundation
 
+//Represents a point in pixel space
 struct PixelPoint
 {
     var x = 0;
@@ -27,7 +28,8 @@ struct PixelPoint
     }
 }
 
-struct BlockPoint
+//Represents a point in cell space
+struct CellPoint
 {
     var x = 0;
     var y = 0;

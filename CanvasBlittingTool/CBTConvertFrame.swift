@@ -33,6 +33,7 @@ class CBTConvertFrame: CBTConversionOperation
                 return;
             }
             
+            //Add operations to compare and write each cell
             for (index, cell) in enumerate(frame.cells)
             {
                 let lastCell = lastFrame.cells[index];
@@ -41,6 +42,7 @@ class CBTConvertFrame: CBTConversionOperation
         }
         else
         {
+            //Add operations to write each cell
             for (index, cell) in enumerate(frame.cells)
             {
                 self.queue.addOperation(CBTConvertCell(destinationIndex: index, frameNumber: self.frameNumber, cell: cell, lastCell: nil));

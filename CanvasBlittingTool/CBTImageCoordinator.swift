@@ -18,30 +18,7 @@ class CBTImageCoordinator: CBTCoordinator
     func addCell(cell: HashedCell, callbackClosure: (Int) -> Void)
     {
         var operation = NSBlockOperation { () -> Void in
-            //Write block at current draw point
             
-            /*let transform = NSAffineTransform();
-            transform.translateXBy(self.position.pixelPoint.point.x, yBy: self.position.pixelPoint.point.y);
-            NSLog("----[Wrote to %f,%f]", self.position.pixelPoint.point.x, self.position.pixelPoint.point.y);
-            
-            let shiftFilter = CIFilter(name: "CIAffineTransform");
-            shiftFilter.setValue(block, forKey: kCIInputImageKey);
-            shiftFilter.setValue(transform, forKey: kCIInputTransformKey);
-            
-            let compositeFilter = CIFilter(name: "CISourceOverCompositing");
-            compositeFilter.setValue(shiftFilter.outputImage, forKey: kCIInputImageKey);
-            compositeFilter.setValue(self.image, forKey: kCIInputBackgroundImageKey);
-            self.image = compositeFilter.outputImage;
-            
-            //Callback with point where image was drawn
-            callbackClosure(self.position);
-            //Move draw point forward
-            self.position.x++;
-            if (self.position.x == self.width)
-            {
-                self.position.x = 0;
-                self.position.y--;
-            }*/
             //If we already have the cell in our list just use that position
             if (self.cells[cell] != nil)
             {
@@ -50,7 +27,7 @@ class CBTImageCoordinator: CBTCoordinator
             }
             else
             {
-                //Add a new entry with the index, callback and increments
+                //Add a new entry with the index, callback and increment
                 self.cells[cell] = self.index;
                 callbackClosure(self.index);
                 NSLog("---[Cell Written at %i]" , self.index);
@@ -67,9 +44,11 @@ class CBTImageCoordinator: CBTCoordinator
         
         self.image = NSImage(size: CGSizeMake(CGFloat(width*8), CGFloat(height*8))).unscaledCIImage();
         
+        //Write each of the cells onto the final image
         for (cell, index) in cells
         {
-            let position = BlockPoint(x: index%width, y: height-(index/width), size: 8);
+            //Find the cell space position from the index, starting at the top left
+            let position = CellPoint(x: index%width, y: height-(index/width), size: 8);
             
             let transform = NSAffineTransform();
             transform.translateXBy(position.pixelPoint.point.x, yBy: position.pixelPoint.point.y);
@@ -85,6 +64,7 @@ class CBTImageCoordinator: CBTCoordinator
             self.image = compositeFilter.outputImage;
         }
         
+        //Write the image to file
         self.image!.writeToPNG("output2.png");
     }
 }
