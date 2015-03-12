@@ -27,7 +27,7 @@ class HashedFrame : Hashable, Printable
         //Parse into the cells array
         for (var cellIndex = 0; cellIndex < settings.cells; cellIndex++)
         {
-            let position = CellPoint(x: cellIndex%settings.cellColumns, y: cellIndex/settings.cellColumns, size: settings.cellSize);
+            let position = CellPoint(x: cellIndex%settings.cellColumns, y: (settings.cellColumns-1)-(cellIndex/settings.cellColumns), size: settings.cellSize);
             //Create the new cropping rectangle and get a subimage from the current frame
             var rect = CGRectMake(position.pixelPoint.point.x, position.pixelPoint.point.y, CGFloat(settings.cellSize), CGFloat(settings.cellSize));
             
