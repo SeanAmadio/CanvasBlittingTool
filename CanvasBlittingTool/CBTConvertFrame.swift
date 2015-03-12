@@ -22,14 +22,14 @@ class CBTConvertFrame: CBTConversionOperation
     
     override func main()
     {
-        //NSLog("--[Convert Frame %i Start]", self.frameNumber);
+        NSLog("--[Convert Frame %i Start]", self.frameNumber);
         
         //If we have a last frame
         if let lastFrame = lastFrameOptional
         {
             if (frame == lastFrame)
             {
-                //NSLog("--[Convert Frame %i Skipped: Static Frame]", self.frameNumber);
+                NSLog("--[Convert Frame %i Skipped: Static Frame]", self.frameNumber);
                 return;
             }
             

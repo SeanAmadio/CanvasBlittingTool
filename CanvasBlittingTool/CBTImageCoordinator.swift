@@ -23,14 +23,14 @@ class CBTImageCoordinator: CBTCoordinator
             if (self.cells[cell] != nil)
             {
                 callbackClosure(self.cells[cell]!);
-                //NSLog("---[Cell Exists at %i]" , self.cells[cell]!);
+                NSLog("---[Cell Exists at %i]" , self.cells[cell]!);
             }
             else
             {
                 //Add a new entry with the index, callback and increment
                 self.cells[cell] = self.index;
                 callbackClosure(self.index);
-                //NSLog("---[Cell Written at %i]" , self.index);
+                NSLog("---[Cell Written at %i]" , self.index);
                 self.index++;
             }
         };
@@ -52,7 +52,7 @@ class CBTImageCoordinator: CBTCoordinator
             
             let transform = NSAffineTransform();
             transform.translateXBy(position.pixelPoint.point.x, yBy: position.pixelPoint.point.y);
-            //NSLog("----[Index %i Wrote to %f,%f]", index, position.pixelPoint.point.x, position.pixelPoint.point.y);
+            NSLog("----[Index %i Wrote to %f,%f]", index, position.pixelPoint.point.x, position.pixelPoint.point.y);
             
             let shiftFilter = CIFilter(name: "CIAffineTransform");
             shiftFilter.setValue(cell.image, forKey: kCIInputImageKey);
