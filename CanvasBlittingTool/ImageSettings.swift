@@ -80,11 +80,19 @@ struct Settings
         }
     }
     
+    var folderPath: String
+    {
+        get
+        {
+            return outputPath+"/"+outputName;
+        }
+    }
+    
     var imagePath: String
     {
         get
         {
-            return outputPath+outputName+".png";
+            return folderPath+"/"+outputName+".png";
         }
     }
     
@@ -92,7 +100,7 @@ struct Settings
     {
         get
         {
-            return outputPath+outputName+"Manifest.json";
+            return folderPath+"/"+outputName+"Manifest.json";
         }
     }
     

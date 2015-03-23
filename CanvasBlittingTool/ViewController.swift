@@ -96,7 +96,7 @@ class ViewController: NSViewController {
         };
     }
     
-    @IBAction func outputFolder(sender: NSButton)
+    @IBAction func outputLocation(sender: NSButton)
     {
         //Pop the dialog
         var dialog = NSOpenPanel();
@@ -104,6 +104,7 @@ class ViewController: NSViewController {
         dialog.allowsMultipleSelection = false;
         dialog.canChooseDirectories = true;
         dialog.canCreateDirectories = true;
+        dialog.message = "Note: A named subfolder will be generated at this location containing the render"
         
         dialog.beginWithCompletionHandler { (result:Int) -> Void in
             if (result == NSFileHandlingPanelOKButton)
@@ -133,7 +134,7 @@ class ViewController: NSViewController {
             frameCount: self.imageArray.count,
             framerate: FrameRate(rawValue: self.frameratePopup.selectedItem!.tag)!,
             outputName: self.outputNameField.stringValue,
-            outputPath: self.outputFolder!.path!+"/",
+            outputPath: self.outputFolder!.path!,
             manifestVersion: ManifestVersion(rawValue: self.manifestVersion.selectedItem!.tag)!,
             prettyManifest:(self.manifestPretty.state == NSOnState),
             cellSize: CellSize(rawValue: self.blockSizePopup.selectedItem!.tag)!

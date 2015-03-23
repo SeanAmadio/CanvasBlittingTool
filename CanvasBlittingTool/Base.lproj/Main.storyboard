@@ -195,13 +195,13 @@
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="68" id="Why-1m-RiC"/>
                                             </constraints>
-                                            <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="vHD-H1-fBQ">
+                                            <popUpButtonCell key="cell" type="push" title="60 fps" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="60" imageScaling="proportionallyDown" inset="2" selectedItem="KfP-fF-fc2" id="vHD-H1-fBQ">
                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="menu"/>
                                                 <menu key="menu" id="14m-Ei-gxm">
                                                     <items>
                                                         <menuItem title="30 fps" state="on" tag="30" id="JRZ-iH-Qo6"/>
-                                                        <menuItem title="60 fps" tag="60" id="KfP-fF-fc2"/>
+                                                        <menuItem title="60 fps" state="on" tag="60" id="KfP-fF-fc2"/>
                                                     </items>
                                                 </menu>
                                             </popUpButtonCell>
@@ -379,12 +379,12 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="22" id="eMP-7N-Fcm"/>
                                             </constraints>
-                                            <buttonCell key="cell" type="push" title="Select Output Folder..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gbG-jP-QD5">
+                                            <buttonCell key="cell" type="push" title="Output Location..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gbG-jP-QD5">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                             <connections>
-                                                <action selector="outputFolder:" target="XfG-lQ-9wD" id="IM7-MI-8DN"/>
+                                                <action selector="outputLocation:" target="XfG-lQ-9wD" id="uFk-8X-FMj"/>
                                             </connections>
                                         </button>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7na-gJ-dSE">
