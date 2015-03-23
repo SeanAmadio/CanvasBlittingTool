@@ -79,6 +79,15 @@ struct Settings
             return Int(ceil(log2(Double(cells))));
         }
     }
+    
+    //Returns a suitable string to be used as a label for this render setup in the interface
+    var label:String
+    {
+        get
+        {
+            return "\(outputName) [\(cellSize.rawValue)x\(cellSize.rawValue)] [\(framerate.rawValue)fps]";
+        }
+    }
 }
 
 

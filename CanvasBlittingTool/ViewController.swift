@@ -12,19 +12,25 @@ import Foundation
 class ViewController: NSViewController {
 
     @IBOutlet weak var blockSizePopup: NSPopUpButton!
+    @IBOutlet weak var frameRatePopup: NSPopUpButton!
+    @IBOutlet weak var manifestVersion: NSPopUpButton!
+    @IBOutlet weak var manifestPretty: NSButton!
     //The selected item will have a tag number equal to its framerate
     @IBOutlet weak var frameratePopup: NSPopUpButton!
-    @IBOutlet weak var hashComparisonCheck: NSButton!
-    @IBOutlet weak var loopCheck: NSButton!
     @IBOutlet weak var animationView: CBTAnimationView!
+    @IBOutlet weak var renderQueueView: NSTableView!
     
     
     
     var imageArray:[AnyObject] = [];
     
+    var renderQueue:RenderQueue = RenderQueue();
+    
     override func viewDidLoad()
     {
         super.viewDidLoad();
+        self.renderQueueView.setDelegate(self.renderQueue);
+        self.renderQueueView.setDataSource(self.renderQueue);
     }
     
     @IBAction func openFileAction(sender: NSButton)
@@ -68,21 +74,32 @@ class ViewController: NSViewController {
     
     @IBAction func startQueue(sender: NSButton)
     {
-        var conversionQueue = NSOperationQueue();
-        if let images = self.imageArray as? [NSImage] {
-            let inputSettings = Settings(width:32, height: 32, frameCount: 4, cellSize: 8);
-            conversionQueue.addOperation(CBTConvertAnimation(frames: images, settings: inputSettings));
+        if let images = self.imageArray as? [NSImage]
+        {
+            self.renderQueue.startQueue(images);
         }
     }
     
     @IBAction func addToQueue(sender: NSButton)
     {
-        var conversionQueue = NSOperationQueue();
-        if let images = self.imageArray as? [NSImage] {
-            let inputSettings = Settings(width:32, height: 32, frameCount: 4, cellSize: 8);
-            conversionQueue.addOperation(CBTConvertAnimation(frames: images, settings: inputSettings));
-        }
+        var docsDir:AnyObject = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0];
+        var databasePath = docsDir.stringByAppendingPathComponent("");
+        
+        var manifestVersion:ManifestVersion;
+        var prettyManifest:Bool;
+        let settings = Settings(
+            width: 32,
+            height: 32,
+            frameCount: 4,
+            framerate: FrameRate.F30,
+            outputName: "output",
+            outputPath: databasePath,
+            manifestVersion: ManifestVersion.Version1,
+            prettyManifest:true,
+            cellSize: CellSize.S8
+        );
+        self.renderQueue.queue.append(settings)
+        self.renderQueueView.reloadData();
     }
-
 }
 
