@@ -255,12 +255,12 @@
                             </button>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DqU-UY-asY">
                                 <rect key="frame" x="20" y="49" width="215" height="512"/>
-                                <clipView key="contentView" id="RAK-ba-RNc">
+                                <clipView key="contentView" misplaced="YES" copiesOnScroll="NO" id="RAK-ba-RNc">
                                     <rect key="frame" x="1" y="0.0" width="238" height="134"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" typeSelect="NO" headerView="wPJ-Qv-tuQ" id="xDz-93-oeW">
-                                            <rect key="frame" x="0.0" y="0.0" width="238" height="134"/>
+                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" typeSelect="NO" headerView="Dvj-pT-Lha" id="xDz-93-oeW">
+                                            <rect key="frame" x="0.0" y="0.0" width="213" height="19"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -287,7 +287,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="215" id="Cod-jx-KoW"/>
                                 </constraints>
-                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="0.043437406525754341" horizontal="YES" id="Tyt-Xc-bc6">
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="Tyt-Xc-bc6">
                                     <rect key="frame" x="1" y="119" width="223" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
@@ -295,8 +295,8 @@
                                     <rect key="frame" x="224" y="17" width="15" height="102"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <tableHeaderView key="headerView" id="wPJ-Qv-tuQ">
-                                    <rect key="frame" x="0.0" y="0.0" width="238" height="17"/>
+                                <tableHeaderView key="headerView" id="Dvj-pT-Lha">
+                                    <rect key="frame" x="0.0" y="0.0" width="10000" height="17"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
@@ -315,12 +315,12 @@
                                     <subviews>
                                         <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0Ab-xg-kKI">
                                             <rect key="frame" x="16" y="34" width="188" height="26"/>
-                                            <popUpButtonCell key="cell" type="push" title="Version 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="1" imageScaling="proportionallyDown" inset="2" id="nIm-JY-AkA">
+                                            <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="nIm-JY-AkA">
                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="menu"/>
                                                 <menu key="menu" id="KO2-oY-lz6">
                                                     <items>
-                                                        <menuItem title="Version 1" state="on" tag="1" id="4gn-ck-AeL"/>
+                                                        <menuItem title="Version 1" tag="1" id="4gn-ck-AeL"/>
                                                         <menuItem title="Version 2" tag="2" id="mxk-M4-SCG"/>
                                                         <menuItem title="Version 3" tag="3" id="aes-Ri-yzk"/>
                                                     </items>

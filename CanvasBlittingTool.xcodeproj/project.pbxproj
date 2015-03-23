@@ -11,6 +11,7 @@
 		1428C7E71AB0FCFD00ADDFFB /* HashedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1428C7E61AB0FCFD00ADDFFB /* HashedCell.swift */; };
 		1428C7E91AB1025700ADDFFB /* HashedFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1428C7E81AB1025700ADDFFB /* HashedFrame.swift */; };
 		1430295C1AA807DD00869663 /* CIImage+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1430295B1AA807DD00869663 /* CIImage+Operations.swift */; };
+		14CDE02B1ABF910200BFF035 /* RenderQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CDE02A1ABF910200BFF035 /* RenderQueue.swift */; };
 		14CE2B431AA62FDA005CB475 /* Points.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CE2B421AA62FDA005CB475 /* Points.swift */; };
 		14D672D71A8D4B0000930340 /* NSImage+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D672D61A8D4B0000930340 /* NSImage+Operations.swift */; };
 		DD76FD6A1A369A4A007C6FA7 /* CBTConversionOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD76FD691A369A4A007C6FA7 /* CBTConversionOperation.swift */; };
@@ -43,6 +44,7 @@
 		1428C7E61AB0FCFD00ADDFFB /* HashedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashedCell.swift; sourceTree = "<group>"; };
 		1428C7E81AB1025700ADDFFB /* HashedFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashedFrame.swift; sourceTree = "<group>"; };
 		1430295B1AA807DD00869663 /* CIImage+Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CIImage+Operations.swift"; sourceTree = "<group>"; };
+		14CDE02A1ABF910200BFF035 /* RenderQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenderQueue.swift; sourceTree = "<group>"; };
 		14CE2B421AA62FDA005CB475 /* Points.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Points.swift; sourceTree = "<group>"; };
 		14D672D61A8D4B0000930340 /* NSImage+Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSImage+Operations.swift"; sourceTree = "<group>"; };
 		DD76FD691A369A4A007C6FA7 /* CBTConversionOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBTConversionOperation.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				1428C7E61AB0FCFD00ADDFFB /* HashedCell.swift */,
 				1428C7E81AB1025700ADDFFB /* HashedFrame.swift */,
 				140109DC1AB13F1B0040CAB1 /* ImageSettings.swift */,
+				14CDE02A1ABF910200BFF035 /* RenderQueue.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 				DD76FD6C1A369F35007C6FA7 /* CBTCoordinator.swift in Sources */,
 				14CE2B431AA62FDA005CB475 /* Points.swift in Sources */,
 				1428C7E91AB1025700ADDFFB /* HashedFrame.swift in Sources */,
+				14CDE02B1ABF910200BFF035 /* RenderQueue.swift in Sources */,
 				DDEED60219F6238300F38C77 /* ViewController.swift in Sources */,
 				DDEED60019F6238300F38C77 /* AppDelegate.swift in Sources */,
 				1428C7E71AB0FCFD00ADDFFB /* HashedCell.swift in Sources */,

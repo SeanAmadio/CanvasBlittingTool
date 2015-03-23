@@ -11,7 +11,7 @@ import Cocoa
 enum ManifestWriteError
 {
     case None
-    case UnsupportedVersion(Int)
+    case UnsupportedVersion(ManifestVersion)
     case InvalidManifest
     case SerializationError
     case EncodingError
@@ -37,25 +37,22 @@ class CBTJSONCoordinator: CBTCoordinator
         self.modifyQueue.addOperation(operation);
     }
     
-    func writeManifest(version:Int, pretty:Bool) -> ManifestWriteError
+    func writeManifest(path: String, name: String, version:ManifestVersion, pretty:Bool) -> ManifestWriteError
     {
         //Ok
         var manifest = [String:AnyObject]();
         
         switch (version)
         {
-            case 1:
-                manifest["version"] = 1;
+            case ManifestVersion.Version1:
+                manifest["version"] = version.rawValue;
                 manifest["frameCount"] = self.data.count;
                 manifest["blockSize"] = 8;
                 manifest["frames"] = self.data;
             default:
-                NSLog("Unsupported format %i", version);
+                NSLog("Unsupported format %i", version.rawValue);
                 return ManifestWriteError.UnsupportedVersion(version);
         }
-        
-        var docsDir:AnyObject = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0];
-        var databasePath = docsDir.stringByAppendingPathComponent("manifest.json");
         
         //Write the manifest to the file
         let settings = pretty ? NSJSONWritingOptions.PrettyPrinted : nil;
@@ -63,15 +60,7 @@ class CBTJSONCoordinator: CBTCoordinator
         {
             if let data = NSJSONSerialization.dataWithJSONObject(manifest, options: settings, error: nil)
             {
-                data.writeToFile(databasePath, atomically: true);
-                /*if let JSONString = NSString(data: data, encoding: NSUTF8StringEncoding)
-                {
-                    return JSONString
-                }
-                else
-                {
-                    return ManifestWriteError.EncodingError;
-                }*/
+                data.writeToFile("\(path)\(name)Manifest.json", atomically: true);
                 return ManifestWriteError.None;
             }
             else

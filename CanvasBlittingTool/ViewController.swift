@@ -18,6 +18,8 @@ class ViewController: NSViewController {
     @IBOutlet weak var loopCheck: NSButton!
     @IBOutlet weak var animationView: CBTAnimationView!
     
+    
+    
     var imageArray:[AnyObject] = [];
     
     override func viewDidLoad()
@@ -64,7 +66,16 @@ class ViewController: NSViewController {
         };
     }
     
-    @IBAction func startConversion(sender: NSButton)
+    @IBAction func startQueue(sender: NSButton)
+    {
+        var conversionQueue = NSOperationQueue();
+        if let images = self.imageArray as? [NSImage] {
+            let inputSettings = Settings(width:32, height: 32, frameCount: 4, cellSize: 8);
+            conversionQueue.addOperation(CBTConvertAnimation(frames: images, settings: inputSettings));
+        }
+    }
+    
+    @IBAction func addToQueue(sender: NSButton)
     {
         var conversionQueue = NSOperationQueue();
         if let images = self.imageArray as? [NSImage] {

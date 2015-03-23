@@ -37,7 +37,7 @@ class CBTImageCoordinator: CBTCoordinator
         self.modifyQueue.addOperation(operation);
     }
     
-    func writeImage()
+    func writeImage(path: String, name: String)
     {
         let width = Int(ceil(sqrt(Float(self.cells.count))));
         let height = Int(ceil(Float(self.cells.count)/Float(width)));
@@ -65,6 +65,6 @@ class CBTImageCoordinator: CBTCoordinator
         }
         
         //Write the image to file
-        self.image!.writeToPNG("output2.png");
+        self.image!.writeToPNG("\(path)\(name).png");
     }
 }

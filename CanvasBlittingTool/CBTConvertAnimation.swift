@@ -11,12 +11,8 @@ import AppKit
 
 class CBTConvertAnimation: CBTConversionOperation
 {
-    
-    static var imageCoordinator:CBTImageCoordinator?;
-    static var JSONCoordinator:CBTJSONCoordinator?;
-    
     var frames:[NSImage];
-    var inputSettings:Settings;
+    var settings:Settings;
     
     var imageCoordinator = CBTImageCoordinator();
     var JSONCoordinator:CBTJSONCoordinator;
@@ -24,7 +20,7 @@ class CBTConvertAnimation: CBTConversionOperation
     
     init(frames:[NSImage], settings:Settings)
     {
-        self.inputSettings = settings;
+        self.settings = settings;
         self.frames = frames;
         
         self.JSONCoordinator = CBTJSONCoordinator(frames: settings.frameCount);
@@ -33,13 +29,10 @@ class CBTConvertAnimation: CBTConversionOperation
     override func main()
     {
         NSLog("-[Convert Animation Start]");
-        //Set the coordinators for the block content
-        CBTConvertAnimation.imageCoordinator = self.imageCoordinator;
-        CBTConvertAnimation.JSONCoordinator = self.JSONCoordinator;
         
         var hashedFrames = Array<HashedFrame>();
         
-        for var index = 0; index < inputSettings.frameCount; ++index
+        for var index = 0; index < settings.frameCount; ++index
         {
             hashedFrames.append(HashedFrame(frame: frames[index].unscaledCIImage(), settings: self.inputSettings));
             //For the first image we add a frame comparison with null to the queue so that we will get the initial state
@@ -56,10 +49,9 @@ class CBTConvertAnimation: CBTConversionOperation
         
         self.queue.waitUntilAllOperationsAreFinished();
         
-        CBTConvertAnimation.imageCoordinator!.writeImage();
-        CBTConvertAnimation.JSONCoordinator!.writeManifest(1, pretty: true);
-        NSLog("Written Cells: %i",CBTConvertAnimation.imageCoordinator!.cells.count);
-        NSLog("Written Manifest: %i",CBTConvertAnimation.JSONCoordinator!.data);
+        self.imageCoordinator.writeImage(self.settings.outputPath, name: self.settings.outputName);
+        self.JSONCoordinator.writeManifest(self.settings.outputPath, name: self.settings.outputName, version: self.settings.manifestVersion, pretty: self.settings.prettyManifest);
+        NSLog("Written Cells: %i",self.imageCoordinator.cells.count);
         NSLog("-[Convert Animation End]");
     }
 }

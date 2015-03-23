@@ -8,6 +8,27 @@
 
 import Foundation
 
+
+enum FrameRate : Int
+{
+    case F30 = 30
+    case F60 = 60
+}
+
+enum CellSize : Int
+{
+    case S8 = 8
+    case S16 = 16
+    case S32 = 32
+}
+
+enum ManifestVersion : Int
+{
+    case Version1 = 1
+    case Version2 = 2
+    case Version3 = 3
+}
+
 //Describing cell metadata
 struct Settings
 {
@@ -15,14 +36,22 @@ struct Settings
     var width:Int;
     var height:Int;
     var frameCount:Int;
+    var framerate:FrameRate;
+    
+    //Output Settings
+    var outputName:String;
+    var outputPath:String;
+    var manifestVersion:ManifestVersion;
+    var prettyManifest:Bool;
+    
     
     //Cell size
-    var cellSize:Int;
+    var cellSize:CellSize;
     var cellRows:Int
     {
         get
         {
-            return Int(ceil(Float(width)/Float(cellSize)));
+            return Int(ceil(Float(width)/Float(cellSize.rawValue)));
         }
     }
     
@@ -30,7 +59,7 @@ struct Settings
     {
         get
         {
-            return Int(ceil(Float(height)/Float(cellSize)));
+            return Int(ceil(Float(height)/Float(cellSize.rawValue)));
         }
     }
     
@@ -50,4 +79,10 @@ struct Settings
             return Int(ceil(log2(Double(cells))));
         }
     }
+}
+
+
+struct RenderSettings
+{
+    
 }
