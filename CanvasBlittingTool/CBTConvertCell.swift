@@ -10,13 +10,15 @@ import AppKit
 
 class CBTConvertCell: CBTConversionOperation
 {
+    var animationManager:CBTConvertAnimation;
     var destinationIndex:Int;
     var frameNumber:Int;
     var cell:HashedCell;
     var lastCellOptional:HashedCell?;
     
-    init(destinationIndex: Int, frameNumber: Int, cell:HashedCell, lastCell:HashedCell?)
+    init(animation:CBTConvertAnimation, destinationIndex: Int, frameNumber: Int, cell:HashedCell, lastCell:HashedCell?)
     {
+        self.animationManager = animation;
         self.destinationIndex = destinationIndex;
         self.frameNumber = frameNumber
         self.cell = cell;
@@ -47,9 +49,8 @@ class CBTConvertCell: CBTConversionOperation
     {
         //Ask for an image write, when that is done ask for a manifest write, wait until all is done before this operation completes
         let sem = dispatch_semaphore_create(0);
-        CBTConvertAnimation.imageCoordinator!.addCell(cell, callbackClosure: { (sourceIndex:Int) -> Void in
-            CBTConvertAnimation.JSONCoordinator!.addCellData(sourceIndex, destinationIndex: self.destinationIndex, frame: self.frameNumber, callbackClosure: { () -> Void in
-                
+        self.animationManager.imageCoordinator.addCell(cell, callbackClosure: { (sourceIndex:Int) -> Void in
+            self.animationManager.JSONCoordinator.addCellData(sourceIndex, destinationIndex: self.destinationIndex, frame: self.frameNumber, callbackClosure: { () -> Void in
                 dispatch_semaphore_signal(sem);
             })
         })

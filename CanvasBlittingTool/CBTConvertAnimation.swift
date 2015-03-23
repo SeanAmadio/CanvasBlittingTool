@@ -32,23 +32,23 @@ class CBTConvertAnimation: CBTConversionOperation
         
         var hashedFrames = Array<HashedFrame>();
         
-        for var index = 0; index < settings.frameCount; ++index
+        for var index = 0; index < self.settings.frameCount; ++index
         {
-            hashedFrames.append(HashedFrame(frame: frames[index].unscaledCIImage(), settings: self.inputSettings));
+            hashedFrames.append(HashedFrame(frame: frames[index].unscaledCIImage(), settings: self.settings));
             //For the first image we add a frame comparison with null to the queue so that we will get the initial state
             if (index == 0)
             {
-                self.queue.addOperation(CBTConvertFrame(frame: hashedFrames[index], lastFrame: nil, frameNumber: index));
+                self.queue.addOperation(CBTConvertFrame(animation: self, frame: hashedFrames[index], lastFrame: nil, frameNumber: index));
             }
             else
             {
-                self.queue.addOperation(CBTConvertFrame(frame: hashedFrames[index], lastFrame: hashedFrames[index-1], frameNumber: index));
+                self.queue.addOperation(CBTConvertFrame(animation: self, frame: hashedFrames[index], lastFrame: hashedFrames[index-1], frameNumber: index));
             }
         }
         
-        
         self.queue.waitUntilAllOperationsAreFinished();
         
+        //Flush the image and the manifest to file, this is where the demo html and the JS will go
         self.imageCoordinator.writeImage(self.settings.outputPath, name: self.settings.outputName);
         self.JSONCoordinator.writeManifest(self.settings.outputPath, name: self.settings.outputName, version: self.settings.manifestVersion, pretty: self.settings.prettyManifest);
         NSLog("Written Cells: %i",self.imageCoordinator.cells.count);

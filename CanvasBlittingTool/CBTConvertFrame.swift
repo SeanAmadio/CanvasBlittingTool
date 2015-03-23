@@ -9,12 +9,14 @@ import AppKit
 
 class CBTConvertFrame: CBTConversionOperation
 {
+    var animationManager:CBTConvertAnimation;
     var frame:HashedFrame;
     var lastFrameOptional:HashedFrame?;
     var frameNumber:Int;
     
-    init(frame:HashedFrame, lastFrame:HashedFrame?, frameNumber:Int)
+    init(animation:CBTConvertAnimation, frame:HashedFrame, lastFrame:HashedFrame?, frameNumber:Int)
     {
+        self.animationManager = animation;
         self.frame = frame;
         self.lastFrameOptional = lastFrame;
         self.frameNumber = frameNumber;
@@ -37,7 +39,7 @@ class CBTConvertFrame: CBTConversionOperation
             for (index, cell) in enumerate(frame.cells)
             {
                 let lastCell = lastFrame.cells[index];
-                self.queue.addOperation(CBTConvertCell(destinationIndex: index, frameNumber: self.frameNumber, cell: cell, lastCell: lastCell));
+                self.queue.addOperation(CBTConvertCell(animation: self.animationManager, destinationIndex: index, frameNumber: self.frameNumber, cell: cell, lastCell: lastCell));
             }
         }
         else
@@ -45,7 +47,7 @@ class CBTConvertFrame: CBTConversionOperation
             //Add operations to write each cell
             for (index, cell) in enumerate(frame.cells)
             {
-                self.queue.addOperation(CBTConvertCell(destinationIndex: index, frameNumber: self.frameNumber, cell: cell, lastCell: nil));
+                self.queue.addOperation(CBTConvertCell(animation: self.animationManager, destinationIndex: index, frameNumber: self.frameNumber, cell: cell, lastCell: nil));
             }
         }
         self.queue.waitUntilAllOperationsAreFinished();
