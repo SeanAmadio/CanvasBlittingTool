@@ -37,30 +37,30 @@ class CBTJSONCoordinator: CBTCoordinator
         self.modifyQueue.addOperation(operation);
     }
     
-    func writeManifest(path: String, name: String, version:ManifestVersion, pretty:Bool) -> ManifestWriteError
+    func writeManifest(settings: Settings) -> ManifestWriteError
     {
         //Ok
         var manifest = [String:AnyObject]();
         
-        switch (version)
+        switch (settings.manifestVersion)
         {
             case ManifestVersion.Version1:
-                manifest["version"] = version.rawValue;
-                manifest["frameCount"] = self.data.count;
-                manifest["blockSize"] = 8;
+                manifest["version"] = settings.manifestVersion.rawValue;
+                manifest["frameCount"] = settings.frameCount;
+                manifest["blockSize"] = settings.cellSize.rawValue;
                 manifest["frames"] = self.data;
             default:
-                NSLog("Unsupported format %i", version.rawValue);
-                return ManifestWriteError.UnsupportedVersion(version);
+                NSLog("Unsupported format %i", settings.manifestVersion.rawValue);
+                return ManifestWriteError.UnsupportedVersion(settings.manifestVersion);
         }
         
         //Write the manifest to the file
-        let settings = pretty ? NSJSONWritingOptions.PrettyPrinted : nil;
+        let jsonSettings = settings.prettyManifest ? NSJSONWritingOptions.PrettyPrinted : nil;
         if (NSJSONSerialization.isValidJSONObject(manifest))
         {
-            if let data = NSJSONSerialization.dataWithJSONObject(manifest, options: settings, error: nil)
+            if let data = NSJSONSerialization.dataWithJSONObject(manifest, options: jsonSettings, error: nil)
             {
-                data.writeToFile(path+name+"Manifest.json", atomically: true);
+                data.writeToFile(settings.manifestPath, atomically: true);
                 return ManifestWriteError.None;
             }
             else

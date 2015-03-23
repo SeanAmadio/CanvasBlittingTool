@@ -49,8 +49,8 @@ class CBTConvertAnimation: CBTConversionOperation
         self.queue.waitUntilAllOperationsAreFinished();
         
         //Flush the image and the manifest to file, this is where the demo html and the JS will go
-        self.imageCoordinator.writeImage(self.settings.outputPath, name: self.settings.outputName);
-        self.JSONCoordinator.writeManifest(self.settings.outputPath, name: self.settings.outputName, version: self.settings.manifestVersion, pretty: self.settings.prettyManifest);
+        self.imageCoordinator.writeImage(self.settings);
+        self.JSONCoordinator.writeManifest(self.settings);
         NSLog("Written Cells: %i",self.imageCoordinator.cells.count);
         NSLog("-[Convert Animation End]");
     }

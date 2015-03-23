@@ -103,6 +103,7 @@ class ViewController: NSViewController {
         dialog.canChooseFiles = false;
         dialog.allowsMultipleSelection = false;
         dialog.canChooseDirectories = true;
+        dialog.canCreateDirectories = true;
         
         dialog.beginWithCompletionHandler { (result:Int) -> Void in
             if (result == NSFileHandlingPanelOKButton)

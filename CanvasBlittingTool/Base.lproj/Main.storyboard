@@ -170,14 +170,14 @@
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="68" id="Kbh-3h-E53"/>
                                             </constraints>
-                                            <popUpButtonCell key="cell" type="push" title="32x32" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="32" imageScaling="proportionallyDown" inset="2" selectedItem="kwX-TO-afb" id="OY5-UZ-GKh">
+                                            <popUpButtonCell key="cell" type="push" title="8x8" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="8" imageScaling="proportionallyDown" inset="2" selectedItem="QiY-AM-bog" id="OY5-UZ-GKh">
                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="menu"/>
                                                 <menu key="menu" id="MNB-rM-dWp">
                                                     <items>
-                                                        <menuItem title="8x8" tag="8" id="QiY-AM-bog"/>
+                                                        <menuItem title="8x8" state="on" tag="8" id="QiY-AM-bog"/>
                                                         <menuItem title="16x16" tag="16" id="DcB-m3-Ukl"/>
-                                                        <menuItem title="32x32" state="on" tag="32" id="kwX-TO-afb"/>
+                                                        <menuItem title="32x32" tag="32" id="kwX-TO-afb"/>
                                                     </items>
                                                 </menu>
                                             </popUpButtonCell>
@@ -195,13 +195,13 @@
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="68" id="Why-1m-RiC"/>
                                             </constraints>
-                                            <popUpButtonCell key="cell" type="push" title="60 fps" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="60" imageScaling="proportionallyDown" inset="2" selectedItem="KfP-fF-fc2" id="vHD-H1-fBQ">
+                                            <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="vHD-H1-fBQ">
                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="menu"/>
                                                 <menu key="menu" id="14m-Ei-gxm">
                                                     <items>
-                                                        <menuItem title="30 fps" tag="30" id="JRZ-iH-Qo6"/>
-                                                        <menuItem title="60 fps" state="on" tag="60" id="KfP-fF-fc2"/>
+                                                        <menuItem title="30 fps" state="on" tag="30" id="JRZ-iH-Qo6"/>
+                                                        <menuItem title="60 fps" tag="60" id="KfP-fF-fc2"/>
                                                     </items>
                                                 </menu>
                                             </popUpButtonCell>
@@ -324,14 +324,14 @@
                                     <subviews>
                                         <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0Ab-xg-kKI">
                                             <rect key="frame" x="16" y="34" width="188" height="26"/>
-                                            <popUpButtonCell key="cell" type="push" title="Version 3" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="3" imageScaling="proportionallyDown" inset="2" selectedItem="aes-Ri-yzk" id="nIm-JY-AkA">
+                                            <popUpButtonCell key="cell" type="push" title="Version 3" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" tag="3" imageScaling="proportionallyDown" inset="2" selectedItem="aes-Ri-yzk" id="nIm-JY-AkA">
                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="menu"/>
                                                 <menu key="menu" id="KO2-oY-lz6">
                                                     <items>
-                                                        <menuItem title="Version 1" tag="1" id="4gn-ck-AeL"/>
+                                                        <menuItem title="Version 1" state="on" tag="1" id="4gn-ck-AeL"/>
                                                         <menuItem title="Version 2" tag="2" id="mxk-M4-SCG"/>
-                                                        <menuItem title="Version 3" state="on" tag="3" id="aes-Ri-yzk"/>
+                                                        <menuItem title="Version 3" tag="3" id="aes-Ri-yzk"/>
                                                     </items>
                                                 </menu>
                                             </popUpButtonCell>

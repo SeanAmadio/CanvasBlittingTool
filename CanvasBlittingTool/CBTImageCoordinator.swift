@@ -37,18 +37,18 @@ class CBTImageCoordinator: CBTCoordinator
         self.modifyQueue.addOperation(operation);
     }
     
-    func writeImage(path: String, name: String)
+    func writeImage(settings: Settings)
     {
         let width = Int(ceil(sqrt(Float(self.cells.count))));
         let height = Int(ceil(Float(self.cells.count)/Float(width)));
         
-        self.image = NSImage(size: CGSizeMake(CGFloat(width*8), CGFloat(height*8))).unscaledCIImage();
+        self.image = NSImage(size: CGSizeMake(CGFloat(width*settings.cellSize.rawValue), CGFloat(height*settings.cellSize.rawValue))).unscaledCIImage();
         
         //Write each of the cells onto the final image
         for (cell, index) in cells
         {
             //Find the cell space position from the index, starting at the top left
-            let position = CellPoint(x: index%width, y: height-(index/width), size: 8);
+            let position = CellPoint(x: index%width, y: height-(index/width), size: settings.cellSize.rawValue);
             
             let transform = NSAffineTransform();
             transform.translateXBy(position.pixelPoint.point.x, yBy: position.pixelPoint.point.y);
@@ -65,6 +65,6 @@ class CBTImageCoordinator: CBTCoordinator
         }
         
         //Write the image to file
-        self.image!.writeToPNG("\(path)\(name).png");
+        self.image!.writeToPNG(settings.imagePath);
     }
 }

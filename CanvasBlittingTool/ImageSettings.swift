@@ -80,6 +80,22 @@ struct Settings
         }
     }
     
+    var imagePath: String
+    {
+        get
+        {
+            return outputPath+outputName+".png";
+        }
+    }
+    
+    var manifestPath: String
+    {
+        get
+        {
+            return outputPath+outputName+"Manifest.json";
+        }
+    }
+    
     //Returns a suitable string to be used as a label for this render setup in the interface
     var label:String
     {
