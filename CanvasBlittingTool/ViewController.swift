@@ -12,9 +12,16 @@ import Foundation
 class ViewController: NSViewController {
 
     @IBOutlet weak var blockSizePopup: NSPopUpButton!
-    @IBOutlet weak var frameRatePopup: NSPopUpButton!
     @IBOutlet weak var manifestVersion: NSPopUpButton!
     @IBOutlet weak var manifestPretty: NSButton!
+    
+    @IBOutlet weak var outputFolderButton: NSButton!
+    @IBOutlet weak var outputFolderField: NSTextField!
+    @IBOutlet weak var outputNameField: NSTextField!
+    
+    @IBOutlet weak var addToQueueButton: NSButton!
+    @IBOutlet weak var startQueueButton: NSButton!
+    
     //The selected item will have a tag number equal to its framerate
     @IBOutlet weak var frameratePopup: NSPopUpButton!
     @IBOutlet weak var animationView: CBTAnimationView!
@@ -23,7 +30,7 @@ class ViewController: NSViewController {
     
     
     var imageArray:[AnyObject] = [];
-    
+    var outputFolder:NSURL?;
     var renderQueue:RenderQueue = RenderQueue();
     
     override func viewDidLoad()
@@ -31,6 +38,15 @@ class ViewController: NSViewController {
         super.viewDidLoad();
         self.renderQueueView.setDelegate(self.renderQueue);
         self.renderQueueView.setDataSource(self.renderQueue);
+        self.addToQueueButton.enabled = false;
+        self.startQueueButton.enabled = false;
+        
+        self.blockSizePopup.enabled = false;
+        self.frameratePopup.enabled = false;
+        self.manifestVersion.enabled = false;
+        self.manifestPretty.enabled = false;
+        self.outputFolderButton.enabled = false;
+        self.outputNameField.enabled = false;
     }
     
     @IBAction func openFileAction(sender: NSButton)
@@ -68,8 +84,36 @@ class ViewController: NSViewController {
                     self.animationView.setAnimation(self.imageArray);
                     self.animationView.startAnimation(self.frameratePopup.selectedTag());
                 });
+                
+                //Enable all of the controls now
+                self.blockSizePopup.enabled = true;
+                self.frameratePopup.enabled = true;
+                self.outputFolderButton.enabled = true;
+                self.outputNameField.enabled = true;
+                self.manifestVersion.enabled = true;
+                self.manifestPretty.enabled = true;
             }
         };
+    }
+    
+    @IBAction func outputFolder(sender: NSButton)
+    {
+        //Pop the dialog
+        var dialog = NSOpenPanel();
+        dialog.canChooseFiles = false;
+        dialog.allowsMultipleSelection = false;
+        dialog.canChooseDirectories = true;
+        
+        dialog.beginWithCompletionHandler { (result:Int) -> Void in
+            if (result == NSFileHandlingPanelOKButton)
+            {
+                var urls = dialog.URLs;
+                self.outputFolder = urls[0] as? NSURL;
+                self.outputFolderField.stringValue = self.outputFolder!.path!;
+                self.addToQueueButton.enabled = true;
+            }
+        };
+        
     }
     
     @IBAction func startQueue(sender: NSButton)
@@ -82,24 +126,20 @@ class ViewController: NSViewController {
     
     @IBAction func addToQueue(sender: NSButton)
     {
-        var docsDir:AnyObject = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0];
-        var databasePath = docsDir.stringByAppendingPathComponent("");
-        
-        var manifestVersion:ManifestVersion;
-        var prettyManifest:Bool;
         let settings = Settings(
-            width: 32,
-            height: 32,
-            frameCount: 4,
-            framerate: FrameRate.F30,
-            outputName: "output",
-            outputPath: databasePath,
-            manifestVersion: ManifestVersion.Version1,
-            prettyManifest:true,
-            cellSize: CellSize.S8
+            width: Int(self.imageArray[0].size.width),
+            height: Int(self.imageArray[0].size.height),
+            frameCount: self.imageArray.count,
+            framerate: FrameRate(rawValue: self.frameratePopup.selectedItem!.tag)!,
+            outputName: self.outputNameField.stringValue,
+            outputPath: self.outputFolder!.path!+"/",
+            manifestVersion: ManifestVersion(rawValue: self.manifestVersion.selectedItem!.tag)!,
+            prettyManifest:(self.manifestPretty.state == NSOnState),
+            cellSize: CellSize(rawValue: self.blockSizePopup.selectedItem!.tag)!
         );
         self.renderQueue.queue.append(settings)
         self.renderQueueView.reloadData();
+        self.startQueueButton.enabled = true;
     }
 }
 

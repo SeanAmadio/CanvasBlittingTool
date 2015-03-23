@@ -35,13 +35,11 @@ extension CIImage
     }
     
     //Writes the CIImage to a PNG in the documents folder with the given name
-    func writeToPNG(name: String) -> Bool
+    func writeToPNG(path: String) -> Bool
     {
-        var docsDir:AnyObject = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0];
-        var databasePath = docsDir.stringByAppendingPathComponent(name);
         var bitmapRep = NSBitmapImageRep(CIImage: self);
         var data = bitmapRep.representationUsingType(NSBitmapImageFileType.NSPNGFileType, properties: Dictionary<NSObject, AnyObject>());
-        return data!.writeToFile(databasePath, atomically: false);
+        return data!.writeToFile(path, atomically: false);
     }
     
     //Returns a new cropped image at 0, 0

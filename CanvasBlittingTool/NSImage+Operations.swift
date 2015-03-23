@@ -26,15 +26,13 @@ extension NSImage
         return rep!;
     }
     
-    func writeToPNG(name: String) -> Bool
+    func writeToPNG(path: String) -> Bool
     {
-        var docsDir:AnyObject = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0];
-        var databasePath = docsDir.stringByAppendingPathComponent(name);
         self.lockFocus();
         var bitmapRep = self.unscaledBitmapRep();
         self.unlockFocus();
         var data = bitmapRep.representationUsingType(NSBitmapImageFileType.NSPNGFileType, properties: Dictionary<NSObject, AnyObject>());
-        return data!.writeToFile(databasePath, atomically: false);
+        return data!.writeToFile(path, atomically: false);
     }
     
     func unscaledCIImage() -> CIImage

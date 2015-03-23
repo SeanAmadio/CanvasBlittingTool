@@ -60,7 +60,7 @@ class CBTJSONCoordinator: CBTCoordinator
         {
             if let data = NSJSONSerialization.dataWithJSONObject(manifest, options: settings, error: nil)
             {
-                data.writeToFile("\(path)\(name)Manifest.json", atomically: true);
+                data.writeToFile(path+name+"Manifest.json", atomically: true);
                 return ManifestWriteError.None;
             }
             else

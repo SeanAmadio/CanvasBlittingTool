@@ -142,11 +142,11 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="CanvasBlittingTool" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="725" height="581"/>
+                        <rect key="frame" x="0.0" y="0.0" width="725" height="597"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8k7-9l-p6g">
-                                <rect key="frame" x="484" y="533" width="227" height="32"/>
+                                <rect key="frame" x="484" y="549" width="227" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="215" id="R7t-le-CQg"/>
                                     <constraint firstAttribute="height" constant="21" id="T6g-yd-qa7"/>
@@ -160,7 +160,7 @@
                                 </buttonCell>
                             </button>
                             <box autoresizesSubviews="NO" title="Animation Settings" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="9Y0-QP-u1A">
-                                <rect key="frame" x="487" y="429" width="221" height="91"/>
+                                <rect key="frame" x="487" y="445" width="221" height="91"/>
                                 <view key="contentView">
                                     <rect key="frame" x="1" y="1" width="219" height="75"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -170,14 +170,14 @@
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="68" id="Kbh-3h-E53"/>
                                             </constraints>
-                                            <popUpButtonCell key="cell" type="push" title="8x8" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="QiY-AM-bog" id="OY5-UZ-GKh">
+                                            <popUpButtonCell key="cell" type="push" title="32x32" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="32" imageScaling="proportionallyDown" inset="2" selectedItem="kwX-TO-afb" id="OY5-UZ-GKh">
                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="menu"/>
                                                 <menu key="menu" id="MNB-rM-dWp">
                                                     <items>
-                                                        <menuItem title="8x8" state="on" id="QiY-AM-bog"/>
-                                                        <menuItem title="16x16" id="DcB-m3-Ukl"/>
-                                                        <menuItem title="32x32" id="kwX-TO-afb"/>
+                                                        <menuItem title="8x8" tag="8" id="QiY-AM-bog"/>
+                                                        <menuItem title="16x16" tag="16" id="DcB-m3-Ukl"/>
+                                                        <menuItem title="32x32" state="on" tag="32" id="kwX-TO-afb"/>
                                                     </items>
                                                 </menu>
                                             </popUpButtonCell>
@@ -236,7 +236,7 @@
                                 <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </box>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jcP-Hu-WF3" customClass="CBTAnimationView" customModule="CanvasBlittingTool" customModuleProvider="target">
-                                <rect key="frame" x="252" y="17" width="221" height="547"/>
+                                <rect key="frame" x="252" y="17" width="221" height="563"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="P9d-VH-Ydh"/>
                                 </constraints>
@@ -256,26 +256,26 @@
                                     <action selector="addToQueue:" target="XfG-lQ-9wD" id="9S9-uJ-LO9"/>
                                 </connections>
                             </button>
-                            <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DqU-UY-asY">
-                                <rect key="frame" x="20" y="49" width="215" height="512"/>
-                                <clipView key="contentView" copiesOnScroll="NO" id="RAK-ba-RNc">
+                            <scrollView focusRingType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DqU-UY-asY">
+                                <rect key="frame" x="20" y="49" width="215" height="528"/>
+                                <clipView key="contentView" focusRingType="none" misplaced="YES" copiesOnScroll="NO" id="RAK-ba-RNc">
                                     <rect key="frame" x="1" y="0.0" width="238" height="134"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnResizing="NO" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" typeSelect="NO" id="xDz-93-oeW">
+                                        <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="none" alternatingRowBackgroundColors="YES" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" typeSelect="NO" headerView="LG1-Sp-WVe" id="xDz-93-oeW">
                                             <rect key="frame" x="0.0" y="0.0" width="213" height="19"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn width="210" minWidth="40" maxWidth="1000" id="c0d-uP-MDc">
+                                                <tableColumn editable="NO" width="210" minWidth="40" maxWidth="1000" id="c0d-uP-MDc">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Renders">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
-                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="Text" id="oWQ-Hv-oRo">
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="Animation [8x8] [60fps]" id="oWQ-Hv-oRo">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -301,10 +301,14 @@
                                     <rect key="frame" x="224" y="17" width="15" height="102"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
+                                <tableHeaderView key="headerView" id="LG1-Sp-WVe">
+                                    <rect key="frame" x="0.0" y="0.0" width="10000" height="17"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableHeaderView>
                             </scrollView>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LGe-nR-SeF">
                                 <rect key="frame" x="14" y="13" width="227" height="32"/>
-                                <buttonCell key="cell" type="push" title="Start Render Queue" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="HgV-CT-Omt">
+                                <buttonCell key="cell" type="push" title="Start Render Queue" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="HgV-CT-Omt">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -313,21 +317,21 @@
                                 </connections>
                             </button>
                             <box autoresizesSubviews="NO" title="Manifest Settings" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="bXb-uQ-6ve">
-                                <rect key="frame" x="487" y="341" width="221" height="84"/>
+                                <rect key="frame" x="487" y="357" width="221" height="84"/>
                                 <view key="contentView">
                                     <rect key="frame" x="1" y="1" width="219" height="68"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0Ab-xg-kKI">
                                             <rect key="frame" x="16" y="34" width="188" height="26"/>
-                                            <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="nIm-JY-AkA">
+                                            <popUpButtonCell key="cell" type="push" title="Version 3" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="3" imageScaling="proportionallyDown" inset="2" selectedItem="aes-Ri-yzk" id="nIm-JY-AkA">
                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="menu"/>
                                                 <menu key="menu" id="KO2-oY-lz6">
                                                     <items>
                                                         <menuItem title="Version 1" tag="1" id="4gn-ck-AeL"/>
                                                         <menuItem title="Version 2" tag="2" id="mxk-M4-SCG"/>
-                                                        <menuItem title="Version 3" tag="3" id="aes-Ri-yzk"/>
+                                                        <menuItem title="Version 3" state="on" tag="3" id="aes-Ri-yzk"/>
                                                     </items>
                                                 </menu>
                                             </popUpButtonCell>
@@ -354,13 +358,56 @@
                                 <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </box>
                             <box autoresizesSubviews="NO" title="Output Settings" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="AUI-bg-8iq">
-                                <rect key="frame" x="487" y="45" width="221" height="292"/>
+                                <rect key="frame" x="487" y="45" width="221" height="308"/>
                                 <view key="contentView">
-                                    <rect key="frame" x="1" y="1" width="219" height="276"/>
+                                    <rect key="frame" x="1" y="1" width="219" height="292"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WaG-Ds-2rf">
+                                            <rect key="frame" x="18" y="260" width="183" height="22"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="22" id="zHf-Vd-ih1"/>
+                                            </constraints>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Animation Name" drawsBackground="YES" id="sYr-8r-WeU">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="o5Y-44-l2y">
+                                            <rect key="frame" x="12" y="220" width="195" height="33"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="22" id="eMP-7N-Fcm"/>
+                                            </constraints>
+                                            <buttonCell key="cell" type="push" title="Select Output Folder..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gbG-jP-QD5">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="outputFolder:" target="XfG-lQ-9wD" id="IM7-MI-8DN"/>
+                                            </connections>
+                                        </button>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7na-gJ-dSE">
+                                            <rect key="frame" x="18" y="199" width="185" height="17"/>
+                                            <textFieldCell key="cell" lineBreakMode="truncatingTail" enabled="NO" sendsActionOnEndEditing="YES" title="Output Folder: None" id="yII-sL-fTp">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                    </subviews>
                                 </view>
                                 <constraints>
+                                    <constraint firstItem="o5Y-44-l2y" firstAttribute="top" secondItem="WaG-Ds-2rf" secondAttribute="bottom" constant="11" id="47M-0x-KVC"/>
+                                    <constraint firstItem="WaG-Ds-2rf" firstAttribute="leading" secondItem="AUI-bg-8iq" secondAttribute="leading" constant="16" id="4Vp-f1-CvG"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="GDf-tq-8uz"/>
+                                    <constraint firstItem="o5Y-44-l2y" firstAttribute="leading" secondItem="AUI-bg-8iq" secondAttribute="leading" constant="16" id="JEv-93-6qi"/>
+                                    <constraint firstItem="WaG-Ds-2rf" firstAttribute="top" secondItem="AUI-bg-8iq" secondAttribute="top" constant="25" id="Pti-Gd-iwU"/>
+                                    <constraint firstItem="7na-gJ-dSE" firstAttribute="top" secondItem="o5Y-44-l2y" secondAttribute="bottom" constant="11" id="bbw-o1-cXX"/>
+                                    <constraint firstAttribute="trailing" secondItem="7na-gJ-dSE" secondAttribute="trailing" constant="16" id="cJr-tx-alc"/>
+                                    <constraint firstItem="7na-gJ-dSE" firstAttribute="leading" secondItem="AUI-bg-8iq" secondAttribute="leading" constant="18" id="u2X-dM-MKa"/>
+                                    <constraint firstAttribute="trailing" secondItem="WaG-Ds-2rf" secondAttribute="trailing" constant="16" id="w7D-9A-sgc"/>
+                                    <constraint firstAttribute="trailing" secondItem="o5Y-44-l2y" secondAttribute="trailing" constant="16" id="yi8-45-ZrY"/>
                                 </constraints>
                                 <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                                 <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -394,13 +441,17 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addToQueueButton" destination="lj5-hD-AoA" id="s3W-Qm-hOw"/>
                         <outlet property="animationView" destination="jcP-Hu-WF3" id="WIW-cF-LQm"/>
                         <outlet property="blockSizePopup" destination="Ovh-ia-Fs2" id="tgu-eM-6FL"/>
-                        <outlet property="frameRatePopup" destination="uqT-h4-Kcs" id="dVa-Iw-Q6q"/>
                         <outlet property="frameratePopup" destination="uqT-h4-Kcs" id="s4f-Xo-TA6"/>
                         <outlet property="manifestPretty" destination="ML7-cU-ive" id="jLk-cC-tWi"/>
                         <outlet property="manifestVersion" destination="0Ab-xg-kKI" id="nyl-Jh-dGB"/>
+                        <outlet property="outputFolderButton" destination="o5Y-44-l2y" id="0tE-ET-3Is"/>
+                        <outlet property="outputFolderField" destination="7na-gJ-dSE" id="aDi-Hl-4A0"/>
+                        <outlet property="outputNameField" destination="WaG-Ds-2rf" id="e8r-NF-WU8"/>
                         <outlet property="renderQueueView" destination="xDz-93-oeW" id="Jf6-eM-BiT"/>
+                        <outlet property="startQueueButton" destination="LGe-nR-SeF" id="g4o-ZO-S0f"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -438,7 +489,7 @@
                     </menu>
                 </popUpButtonCell>
             </objects>
-            <point key="canvasLocation" x="512.5" y="882.5"/>
+            <point key="canvasLocation" x="512.5" y="959.5"/>
         </scene>
     </scenes>
 </document>
