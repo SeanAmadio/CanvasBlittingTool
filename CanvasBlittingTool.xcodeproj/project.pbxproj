@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		140109DD1AB13F1B0040CAB1 /* ImageSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140109DC1AB13F1B0040CAB1 /* ImageSettings.swift */; };
+		1406848E1AC47CCB0001911D /* blit-1.0.js in Resources */ = {isa = PBXBuildFile; fileRef = 1406848D1AC47CCB0001911D /* blit-1.0.js */; };
+		140684901AC47DF20001911D /* DemoTemplate.html in Resources */ = {isa = PBXBuildFile; fileRef = 1406848F1AC47DF20001911D /* DemoTemplate.html */; };
 		1428C7E71AB0FCFD00ADDFFB /* HashedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1428C7E61AB0FCFD00ADDFFB /* HashedCell.swift */; };
 		1428C7E91AB1025700ADDFFB /* HashedFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1428C7E81AB1025700ADDFFB /* HashedFrame.swift */; };
 		1430295C1AA807DD00869663 /* CIImage+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1430295B1AA807DD00869663 /* CIImage+Operations.swift */; };
@@ -41,6 +43,8 @@
 
 /* Begin PBXFileReference section */
 		140109DC1AB13F1B0040CAB1 /* ImageSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSettings.swift; sourceTree = "<group>"; };
+		1406848D1AC47CCB0001911D /* blit-1.0.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "blit-1.0.js"; sourceTree = "<group>"; };
+		1406848F1AC47DF20001911D /* DemoTemplate.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = DemoTemplate.html; sourceTree = "<group>"; };
 		1428C7E61AB0FCFD00ADDFFB /* HashedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashedCell.swift; sourceTree = "<group>"; };
 		1428C7E81AB1025700ADDFFB /* HashedFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashedFrame.swift; sourceTree = "<group>"; };
 		1430295B1AA807DD00869663 /* CIImage+Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CIImage+Operations.swift"; sourceTree = "<group>"; };
@@ -84,6 +88,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1406848B1AC47C950001911D /* Output Files */ = {
+			isa = PBXGroup;
+			children = (
+				1406848C1AC47CA80001911D /* JS */,
+				1406848F1AC47DF20001911D /* DemoTemplate.html */,
+			);
+			name = "Output Files";
+			sourceTree = "<group>";
+		};
+		1406848C1AC47CA80001911D /* JS */ = {
+			isa = PBXGroup;
+			children = (
+				1406848D1AC47CCB0001911D /* blit-1.0.js */,
+			);
+			name = JS;
+			sourceTree = "<group>";
+		};
 		14D672D31A8D4A2900930340 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +170,7 @@
 		DDEED5FC19F6238300F38C77 /* CanvasBlittingTool */ = {
 			isa = PBXGroup;
 			children = (
+				1406848B1AC47C950001911D /* Output Files */,
 				14D672D31A8D4A2900930340 /* Utilities */,
 				DD76FD6D1A36A530007C6FA7 /* Conversion */,
 				DDCC425619FD7C63006235A2 /* CBTAnimationView.swift */,
@@ -267,6 +289,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDEED60419F6238300F38C77 /* Images.xcassets in Resources */,
+				140684901AC47DF20001911D /* DemoTemplate.html in Resources */,
+				1406848E1AC47CCB0001911D /* blit-1.0.js in Resources */,
 				DDEED60719F6238300F38C77 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
