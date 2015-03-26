@@ -36,7 +36,7 @@ class CBTConvertCell: CBTConversionOperation
             }
             else
             {
-                NSLog("---[Cell %i in Frame %i Skipped: Static Block]", self.destinationIndex, self.frameNumber);
+                //NSLog("---[Cell %i in Frame %i Skipped: Static Block]", self.destinationIndex, self.frameNumber);
             }
         }
         else

@@ -1,4 +1,4 @@
-(function (){
+(function (window){
  
     var blitters = {};
 
@@ -28,9 +28,14 @@
     {
         for (var i = 0; i < blitter.frameData[blitter.frame].length; i++)
         {
-            var blit = blitter.frameData[blitter.frame][j];
+            var blit = blitter.frameData[blitter.frame][i];
             var size = blitter.cellSize;
-            blitter.ctx.drawImage(blitter.image, blit[0]*size, blit[1]*size, size, size, blit[2]*size, blit[3]*size, size, size);
+ 
+            var sourceX = blit[0]*size % blitter.image.width;
+            var sourceY = Math.floor(blit[0]*size / blitter.image.width)*size;
+            var destX = blit[1]*size % document.getElementById(blitter.id).offsetWidth;
+            var destY = Math.floor(blit[1]*size / document.getElementById(blitter.id).offsetWidth)*size;
+            blitter.context.drawImage(blitter.image, sourceX, sourceY, size, size, destX, destY, size, size);
         }
     }
 
@@ -51,6 +56,7 @@
                  
                     blitter = new Blitter(canvasID, json.frameCount, json.frameRate, json.frames, json.cellSize, image);
                     blitters[canvasID] = blitter;
+                    console.log(blitter.frameData);
                  }
                  image.src = imageName;
         });
@@ -75,13 +81,12 @@
         this.fps = fps;
         this.frame = 0;
         this.frames = frames;
-        this.frameData = [];
+        this.frameData = frameData;
         this.frameWait = Math.round(60/fps);
         this.frameTimer = 0;
         this.cellSize = cellSize;
         this.image = image;
         this.paused = false;
-        this.imageLoaded = false;
         this.step = function() {
             //Renders if neccesary
             if ((this.frameTimer === 0) && (!this.paused))
@@ -97,7 +102,7 @@
                 }
             }
             //Continue the frame timer
-            this.frameTimer = (this.frameTimer - 1) % frameWait;
+            this.frameTimer = (this.frameTimer - 1) % this.frameWait;
         };
     }
  
@@ -106,13 +111,15 @@
         request.overrideMimeType("application/json");
         request.open('GET', file, false); // Replace 'my_data' with the path to your file
         request.onreadystatechange = function () {
-            if (request.readyState == 4 && request.status == "200")
+            if (request.readyState == 4)
             {
                 callback(request.responseText);
             }
         };
         request.send(null);
     }
-}());
+ 
+     blit_init('animation','TestManifest.json','Test.png');
+})(window);
 
 

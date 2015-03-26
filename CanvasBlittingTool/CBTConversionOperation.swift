@@ -16,7 +16,7 @@ class CBTConversionOperation: NSOperation
     
     override init()
     {
-        self.queue.maxConcurrentOperationCount = 1;
+        //self.queue.maxConcurrentOperationCount = 1;
         super.init();
     }
 }

@@ -47,8 +47,9 @@ class CBTJSONCoordinator: CBTCoordinator
             case ManifestVersion.Version1:
                 manifest["version"] = settings.manifestVersion.rawValue;
                 manifest["frameCount"] = settings.frameCount;
-                manifest["blockSize"] = settings.cellSize.rawValue;
+                manifest["cellSize"] = settings.cellSize.rawValue;
                 manifest["frames"] = self.data;
+                manifest["frameRate"] = settings.framerate.rawValue;
             default:
                 NSLog("Unsupported format %i", settings.manifestVersion.rawValue);
                 return ManifestWriteError.UnsupportedVersion(settings.manifestVersion);
