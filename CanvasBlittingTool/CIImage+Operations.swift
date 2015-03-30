@@ -11,6 +11,7 @@ import AppKit
 
 extension CIImage
 {
+    
     //Accepts a tolerance from 0-1.0 when testing for a match, 0 meaning the blocks must be exact and 1 meaning they can be completely different
     func needsWrite(tolerance: Float) -> Bool
     {
@@ -63,8 +64,8 @@ extension CIImage
         let bytesPerPixel = 4;
         let pixels = Int(self.extent().width*self.extent().height);
         var rawData:[CUnsignedChar] = Array<CUnsignedChar>(count: pixels*bytesPerPixel, repeatedValue: CUnsignedChar(0));
-        let context:CIContext? = NSGraphicsContext(bitmapImageRep: NSBitmapImageRep(CIImage: self))!.CIContext;
-        context!.render(self, toBitmap: &rawData, rowBytes: bytesPerPixel*Int(self.extent().width), bounds: self.extent(), format: kCIFormatARGB8, colorSpace: CGColorSpaceCreateWithName(kCGColorSpaceGenericRGBLinear));
+
+        HashedFrame.context.render(self, toBitmap: &rawData, rowBytes: bytesPerPixel*Int(self.extent().width), bounds: self.extent(), format: kCIFormatARGB8, colorSpace: CGColorSpaceCreateWithName(kCGColorSpaceGenericRGBLinear));
         
         return rawData;
     }

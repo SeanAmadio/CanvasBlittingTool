@@ -55,7 +55,7 @@ class CBTImageCoordinator: CBTCoordinator
             NSLog("----[Index %i Wrote to %f,%f]", index, position.pixelPoint.point.x, position.pixelPoint.point.y);
             
             let shiftFilter = CIFilter(name: "CIAffineTransform");
-            shiftFilter.setValue(cell.image, forKey: kCIInputImageKey);
+            //shiftFilter.setValue(cell.image, forKey: kCIInputImageKey);
             shiftFilter.setValue(transform, forKey: kCIInputTransformKey);
             
             let compositeFilter = CIFilter(name: "CISourceOverCompositing");

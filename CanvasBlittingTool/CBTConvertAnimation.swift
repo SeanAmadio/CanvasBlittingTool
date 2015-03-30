@@ -36,17 +36,17 @@ class CBTConvertAnimation: CBTConversionOperation
         {
             hashedFrames.append(HashedFrame(frame: frames[index].unscaledCIImage(), settings: self.settings));
             //For the first image we add a frame comparison with null to the queue so that we will get the initial state
-            if (index == 0)
+            /*if (index == 0)
             {
                 self.queue.addOperation(CBTConvertFrame(animation: self, frame: hashedFrames[index], lastFrame: nil, frameNumber: index));
             }
             else
             {
                 self.queue.addOperation(CBTConvertFrame(animation: self, frame: hashedFrames[index], lastFrame: hashedFrames[index-1], frameNumber: index));
-            }
+            }*/
         }
         
-        self.queue.waitUntilAllOperationsAreFinished();
+        //self.queue.waitUntilAllOperationsAreFinished();
         
         //Flush the image and the manifest to file, this is where the demo html and the JS will go
         NSFileManager.defaultManager().createDirectoryAtPath(settings.folderPath, withIntermediateDirectories: true, attributes: nil, error: nil);

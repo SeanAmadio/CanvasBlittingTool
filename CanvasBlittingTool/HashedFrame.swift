@@ -9,54 +9,50 @@
 import Foundation
 import AppKit
 
-func ==(lhs: HashedFrame, rhs: HashedFrame) -> Bool
+class HashedFrame
 {
-    return lhs.hashValue == rhs.hashValue;
-}
-
-class HashedFrame : Hashable, Printable
-{
-    //An array of pixel data
-    var cells:[HashedCell];
+    static var context = CIContext();
+    //An array of pixel data for the frame
+    var data:[CUnsignedChar];
+    var cells:[[CUnsignedChar]];
+    var width:Int;
+    var height:Int;
     
     init(frame:CIImage, settings: Settings)
     {
-        //Fill with null data
-        self.cells = Array<HashedCell>();
+        self.data = frame.rawData();
+        self.cells = Array<Array<CUnsignedChar>>();
         
-        //Parse into the cells array
-        for (var cellIndex = 0; cellIndex < settings.cells; cellIndex++)
+        let bytesPerPixel = 4;
+        for (index, byte) in enumerate(self.data)
         {
-            let position = CellPoint(x: cellIndex%settings.cellColumns, y: (settings.cellColumns-1)-(cellIndex/settings.cellColumns), size: settings.cellSize.rawValue);
-            //Create the new cropping rectangle and get a subimage from the current frame
-            var rect = CGRectMake(position.pixelPoint.point.x, position.pixelPoint.point.y, CGFloat(settings.cellSize.rawValue), CGFloat(settings.cellSize.rawValue));
+            //The index in pixel terms (accounting for 4 bytes per pixel
+            var pixelIndex = Int(index / bytesPerPixel);
             
-            //Add the cell to the array
-            cells.append(HashedCell(image: frame.imageByCroppingToRectWithTranslate(rect)));
+            //The X and Y in pixel space of the image
+            var x = pixelIndex % width;
+            var y = Int(pixelIndex/width);
+            
+            var cellIndex = Int(x/settings.cellSize.rawValue) + Int(y/settings.cellSize.rawValue)+ceil(1.0);
+            
+            self.cells[cell].append(self.data[i]);
         }
+        
+        self.width = settings.width;
+        self.height = settings.height;
     }
     
-    /*
-    *   === PROTOCOLS ===
-    */
-    var hashValue : Int
+    //Takes a point in pixel space and returns an index in the data array where you can find that data
+    func transformPointToIndex(point: PixelPoint) -> Int
     {
-        get
+        //Return a negative index if out of bounds
+        if (point.x > self.width-1 || point.x < 0 || point.y > self.height-1 || point.y < 0)
         {
-            var hash:Int = 0;
-            for cell in cells
-            {
-                hash = 12347&*hash &+ cell.hashValue;
-            }
-            return hash;
+            return -1;
         }
-    }
-    
-    var description : String
-    {
-        get
+        else
         {
-            return cells.description;
+            return (point.y*self.width + point.x)*4;    //BytesPerPixel
         }
     }
 }

@@ -16,28 +16,16 @@ func ==(lhs: HashedCell, rhs: HashedCell) -> Bool
 
 class HashedCell : Hashable, Printable
 {
-    //The backing CIImage for writing etc.
-    var image:CIImage;
-    
     //An array of pixel data
     var data:[CUnsignedChar];
+    var hashValue = 0;
     
-    init(image:CIImage)
+    init(data:[CUnsignedChar])
     {
-        self.image = image;
-        self.data = self.image.rawData();
-    }
-    
-    var hashValue : Int
-    {
-        get
+        self.data = data;
+        for dataPoint in data
         {
-            var hash:Int = 0;            
-            for dataPoint in data
-            {
-                hash = 12347&*hash &+ Int(dataPoint);
-            }
-            return hash;
+            self.hashValue = 12347&*self.hashValue &+ Int(dataPoint);
         }
     }
     
